@@ -2,34 +2,57 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const currentScrollY = window.scrollY
+      
+      // Update scrolled state
+      setIsScrolled(currentScrollY > 50)
+      
+      // Show/hide navbar based on scroll direction
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        // Scrolling up or near top - show navbar
+        setIsVisible(true)
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and not near top - hide navbar
+        setIsVisible(false)
+      }
+      
+      setLastScrollY(currentScrollY)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+      } ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold text-primary-orange">
-              Saptrishi Foundation
-            </div>
+          <Link href="/" className="flex items-center gap-3">
+            <Image 
+              src="/images/logo.png" 
+              alt="Saptrishi Foundation Logo" 
+              width={250} 
+              height={70}
+              className="object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -114,12 +137,14 @@ export default function Header() {
               Contact
             </Link>
             
-            <Link 
-              href="/login" 
+            <a 
+              href="https://rzp.io/l/saptrishifoundation" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
             >
-              Login
-            </Link>
+              Donate
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -198,13 +223,15 @@ export default function Header() {
               </Link>
               
               <div className="px-4 pt-4">
-                <Link 
-                  href="/login" 
+                <a 
+                  href="https://rzp.io/l/saptrishifoundation" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-secondary w-full text-center block"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Login
-                </Link>
+                  Donate
+                </a>
               </div>
             </div>
           </nav>

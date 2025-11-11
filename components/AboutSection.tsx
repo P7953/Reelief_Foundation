@@ -16,9 +16,6 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-2 bg-primary-yellow/20 rounded-full mb-4">
-              <span className="text-primary-orange font-semibold text-sm">Registered Since 2017</span>
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               Serving the Underprivileged & Last Miles of Society
             </h2>

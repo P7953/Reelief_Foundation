@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 
 interface NewsCardProps {
   title: string
@@ -11,9 +10,11 @@ interface NewsCardProps {
   image?: string
   slug: string
   delay?: number
+  content?: string
+  onReadMore?: () => void
 }
 
-export default function NewsCard({ title, excerpt, date, image, slug, delay = 0 }: NewsCardProps) {
+export default function NewsCard({ title, excerpt, date, image, slug, delay = 0, content, onReadMore }: NewsCardProps) {
   return (
     <motion.div
       className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group"
@@ -42,12 +43,12 @@ export default function NewsCard({ title, excerpt, date, image, slug, delay = 0 
         <p className="text-gray-600 mb-4 line-clamp-3">
           {excerpt}
         </p>
-        <Link 
-          href={`/news-events/${slug}`}
+        <button 
+          onClick={onReadMore}
           className="inline-flex items-center gap-2 text-primary-orange font-semibold hover:gap-3 transition-all"
         >
           Read More <ArrowRight size={16} />
-        </Link>
+        </button>
       </div>
     </motion.div>
   )
