@@ -39,7 +39,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: 'Office Location',
-      content: 'C/o Citizen First, Office No 104, First Floor, Rainbow Plaza, Shivar Circle, Rahatani, Pune - 17',
+      content:'C/o Office no -105, 1 floor , Aspiro Commercial complex, in front of Thyssenkrup Company , Station road, Pimpri ,Pune 411018',
       link: null
     },
     {
@@ -47,18 +47,6 @@ export default function ContactPage() {
       title: 'Office Contact No',
       content: '+91 9172716630',
       link: 'tel:+919172716630'
-    },
-    {
-      icon: Phone,
-      title: 'Enrolment of Divyang Membership',
-      content: '+91 9665363177',
-      link: 'tel:+919665363177'
-    },
-    {
-      icon: Phone,
-      title: 'Claim Related Query',
-      content: '+91 9075705939',
-      link: 'tel:+919075705939'
     },
     {
       icon: Mail,
@@ -304,7 +292,7 @@ export default function ContactPage() {
       <section className="bg-gray-100 py-0">
         <div className="w-full h-96 md:h-[500px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8877647877396!2d73.78825257516795!3d18.631636982496795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9c6c6c6c6c7%3A0x7a7a7a7a7a7a7a7a!2sRainbow%20Plaza%2C%20Shivar%20Circle%2C%20Rahatani%2C%20Pune!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.871610549822!2d73.80183667471017!3d18.62484366598173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b850e88005d9%3A0xbb942a62c220088c!2sASPIRO!5e0!3m2!1sen!2sin!4v1762939099202!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import PageHeader from '@/components/PageHeader'
 import { Eye, Target, Lightbulb, Users2, Heart, Zap } from 'lucide-react'
 
@@ -56,7 +57,16 @@ export default function VisionMissionPage() {
               <div className="aspect-square bg-gradient-to-br from-accent-blue to-accent-purple rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
                 <div className="text-center p-8 relative z-10">
-                  <div className="text-white text-8xl mb-4">👁️</div>
+                  <div className="mb-4">
+                    <Image 
+                      src="/images/Vision.png" 
+                      alt="Vision" 
+                      width={90} 
+                      height={90} 
+                      className="mx-auto rounded-full object-cover"
+                    />
+                  </div>
+
                   <h3 className="text-3xl font-bold text-white">
                     Vision for Tomorrow
                   </h3>
@@ -81,7 +91,15 @@ export default function VisionMissionPage() {
               <div className="aspect-square bg-gradient-to-br from-accent-green to-accent-blue rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
                 <div className="text-center p-8 relative z-10">
-                  <div className="text-white text-8xl mb-4">🎯</div>
+                  <div className="mb-4">
+                    <Image 
+                      src="/images/Mission.png" 
+                      alt="Vision" 
+                      width={90} 
+                      height={90} 
+                      className="mx-auto rounded-full object-cover"
+                    />
+                  </div>
                   <h3 className="text-3xl font-bold text-white">
                     Mission in Action
                   </h3>

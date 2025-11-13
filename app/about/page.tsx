@@ -119,14 +119,20 @@ export default function AboutPage() {
                 </p>
                 <div className="bg-gradient-to-r from-primary-yellow/20 to-primary-orange/20 border-l-4 border-primary-orange p-6 rounded-r-lg">
                   <p className="font-bold text-gray-800 text-lg">
-                    Our main aim is to empower People with Disabilities across several aspects of their life 
-                    and support them to live a dignified life.
+                    Saptrishi Foundation was born from a life-changing experience of rehabilitating an orphan child with Intellectual Disability. 
+                    Navigating endless paperwork, government offices, and formalities revealed a critical gap a lack of a unified support system 
+                    for Persons with Disabilities (PwDs). Drawing from expertise in both social work and the insurance sector, we set out to create 
+                    solutions that simplify and support the lives of PwDs.
+
                   </p>
                 </div>
                 <p>
-                  In addition, our organization is also engaged in performing <span className="font-semibold">
-                  dignified rituals for unknown or unclaimed human dead bodies</span> which always face negligence, 
-                  ensuring every soul receives respectful final rites.
+                  The COVID-19 pandemic underscored the urgency of our mission. We envisioned a<span className="font-semibold"> digital platform </span>ensuring uninterrupted access to 
+                  disability-related services just a click away. This led to the creation of a mobile application offering hand-holding support for 
+                  <span className="font-semibold ">AADHAR enrollment, UDID cards, and government schemes, alongside organizing free treatment camps</span> and delivering services to the 
+                  grassroots.
+
+                  Today, we remain committed to accessibility, inclusion, and empowerment—ensuring no one is left behind.
                 </p>
               </div>
             </motion.div>
