@@ -2,42 +2,38 @@
 
 import PageHeader from '@/components/PageHeader'
 import { motion } from 'framer-motion'
-import { Download, FileText, BookOpen, Image as ImageIcon, Video } from 'lucide-react'
+import { Download, FileText, BookOpen } from 'lucide-react'
 
 export default function DownloadsPage() {
   const resources = [
     {
-      category: 'News & Updates',
-      icon: FileText,
-      items: [
-        { name: 'News Article 1', size: 'PDF', link: '/images/news1.pdf', type: 'pdf' },
-        { name: 'News Article 2', size: 'PDF', link: '/images/news2.pdf', type: 'pdf' }
-      ]
-    },
-    {
       category: 'Mobile Apps',
       icon: Download,
       items: [
-        { name: 'Saptrishi Foundation App (Coming Soon)', size: '-', link: '#', type: 'app' },
-        // { name: 'iOS App (Coming Soon)', size: '-', link: '#', type: 'app' }
+        {
+          name: 'Saptrishi Foundation App',
+          size: '9 MB',
+          href: '/Saptishi%20Foundation.apk',
+          type: 'app'
+        }
       ]
     },
     {
       category: 'Information Brochures',
       icon: BookOpen,
       items: [
-        { name: 'Organization Brochure', size: 'Coming Soon', link: '#', type: 'pdf' },
-        { name: 'Services Guide', size: 'Coming Soon', link: '#', type: 'pdf' },
-        { name: 'Government Schemes List', size: 'Coming Soon', link: '#', type: 'pdf' }
+        { name: 'Organization Brochure', size: 'Coming Soon', href: '#', type: 'pdf' },
+        { name: 'Services Guide', size: 'Coming Soon', href: '#', type: 'pdf' },
+        { name: 'Government Schemes List', size: 'Coming Soon', href: '#', type: 'pdf' }
       ]
     },
     {
       category: 'Reports & Documents',
       icon: FileText,
       items: [
-        { name: 'Annual Report 2024-25', size: 'Coming Soon', link: '#', type: 'pdf' },
-        { name: 'Impact Report', size: 'Coming Soon', link: '#', type: 'pdf' },
-        { name: '80G Certificate Sample', size: 'Coming Soon', link: '#', type: 'pdf' }
+        { name: 'Annual Report 2024-25', size: 'Coming Soon', href: '#', type: 'pdf' },
+        { name: 'Impact Report', size: 'Coming Soon', href: '#', type: 'pdf' },
+        { name: '80G Certificate Sample', size: 'Coming Soon', href: '#', type: 'pdf' }
       ]
     }
   ]
@@ -105,12 +101,12 @@ export default function DownloadsPage() {
                           </p>
                         </div>
                       </div>
-                      {item.link !== '#' ? (
+
+                      {/* Download Button / Coming Soon */}
+                      {item.href !== '#' ? (
                         <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          download={item.type === 'pdf'}
+                          href={item.href}
+                          download
                           className="inline-flex items-center gap-2 px-4 py-2 bg-primary-orange text-white rounded-full font-semibold hover:bg-orange-600 transition-all w-full justify-center"
                         >
                           <Download size={18} />
@@ -148,7 +144,10 @@ export default function DownloadsPage() {
             <p className="text-xl text-gray-800 mb-8">
               Can't find what you're looking for? Contact us and we'll help you get the information you need.
             </p>
-            <a href="/contact" className="btn-primary bg-white text-primary-orange hover:bg-gray-100">
+            <a 
+              href="/contact" 
+              className="btn-primary bg-white text-primary-orange hover:bg-gray-100"
+            >
               Contact Us
             </a>
           </motion.div>

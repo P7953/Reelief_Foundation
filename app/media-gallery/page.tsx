@@ -186,7 +186,7 @@ export default function MediaGalleryPage() {
     <>
       <PageHeader 
         title="Media Gallery" 
-        subtitle="Our journey in the media spotlight"
+        subtitle="Our journey through the Photos"
       />
 
       {/* Introduction Section */}
@@ -203,11 +203,11 @@ export default function MediaGalleryPage() {
               <Newspaper className="text-white" size={40} strokeWidth={1.5} />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-              Media Recognition
+              Photo's
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-orange to-primary-yellow mx-auto mb-6"></div>
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              Contribution of Saptrishi Foundation has been recognized by local media. Here are a few news cuttings about Saptrishi Foundation.
+              Various activities Photos taken by Saptrishi Foundation.
             </p>
           </motion.div>
 

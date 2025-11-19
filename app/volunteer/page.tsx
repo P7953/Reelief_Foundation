@@ -23,8 +23,8 @@ export default function VolunteerPage() {
     },
     {
       icon: <HandHeart className="w-8 h-8" />,
-      title: 'Personal Growth',
-      description: 'Experience personal satisfaction and growth through meaningful contributions'
+      title: 'Promote Social Awareness',
+      description: 'Help spread awareness, inclusion, and understanding within the community.'
     }
   ]
 
@@ -172,8 +172,8 @@ export default function VolunteerPage() {
               </p>
               <p className="text-gray-700">
                 <strong>Address:</strong>{' '}
-                First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, 
-                Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune - 411017
+                First floor,C/o Manojkumar Borse, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, 
+                Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune - 411017.
               </p>
             </div>
           </motion.div>

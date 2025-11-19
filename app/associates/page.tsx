@@ -7,18 +7,14 @@ import Image from 'next/image'
 
 export default function AssociatesPage() {
   const associates = [
-    { id: 1, image: '/images/associate-01.png', alt: 'Associate 1' },
-    { id: 2, image: '/images/associate-02.png', alt: 'Associate 2' },
-    { id: 3, image: '/images/associate-03.png', alt: 'Associate 3' },
-    { id: 4, image: '/images/associate-04.png', alt: 'Associate 4' },
-    { id: 5, image: '/images/associate-05.png', alt: 'Associate 5' },
-    { id: 6, image: '/images/associate-06.png', alt: 'Associate 6' },
-    { id: 7, image: '/images/associate-07.png', alt: 'Associate 7' },
-    { id: 8, image: '/images/associate-08.png', alt: 'Associate 8' },
-    { id: 9, image: '/images/associate-09.png', alt: 'Associate 9' },
-    { id: 10, image: '/images/associate-10.png', alt: 'Associate 10' },
-    { id: 11, image: '/images/associate-11.png', alt: 'Associate 11' },
-    { id: 12, image: '/images/associate-12.png', alt: 'Associate 12' },
+    { id: 1, image: '/images/associate-13.png', alt: 'Associate 1' },
+    { id: 2, image: '/images/associate-12.png', alt: 'Associate 2' },
+    { id: 3, image: '/images/associate-05.png', alt: 'Associate 3' },
+    { id: 4, image: '/images/associate-08.png', alt: 'Associate 4' },
+    { id: 5, image: '/images/associate-02.png', alt: 'Associate 5' },
+    { id: 6, image: '/images/associate-04.png', alt: 'Associate 6' },
+    
+    
   ]
 
   return (
@@ -45,7 +41,7 @@ export default function AssociatesPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {associates.map((associate, index) => (
               <motion.div
                 key={associate.id}

@@ -2,7 +2,8 @@ import HeroSection from '@/components/HeroSection'
 import ServicesSection from '@/components/ServicesSection'
 import PlatformSection from '@/components/PlatformSection'
 import AboutSection from '@/components/AboutSection'
-import CallToActionSection from '@/components/CallToActionSection'
+import DonationBanner from '@/components/DonationBanner'
+
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <ServicesSection />
       <PlatformSection />
       <AboutSection />
-      <CallToActionSection />
+      <DonationBanner />
     </>
   )
 }

@@ -16,9 +16,9 @@ export default function AboutPage() {
       title: 'Community Service Center'
     },
     {
-      src: '/images/about2.jpg',
-      alt: 'Dignified last rites ceremony organized by Saptrishi Foundation',
-      title: 'Dignified Last Rites Service'
+      src: '/images/about 2.jpeg',
+      alt: 'Homeopathy Camp orgainsed by Saptrishi Foundation for Special childrens',
+      title: 'Homeopathy Camp Service'
     },
     {
       src: '/images/about3.jpg',
@@ -62,16 +62,6 @@ export default function AboutPage() {
       description: 'Promoting accessible healthcare and educational opportunities for all'
     },
     {
-      icon: Users,
-      title: 'Street Children Support',
-      description: 'Providing care, education, and rehabilitation for street children'
-    },
-    {
-      icon: HandHeart,
-      title: 'Women Empowerment',
-      description: 'Empowering women through skill development and livelihood programs'
-    },
-    {
       icon: Droplets,
       title: 'Watershed Development',
       description: 'Sustainable water management and agricultural development initiatives'
@@ -87,7 +77,7 @@ export default function AboutPage() {
     <>
       <PageHeader 
         title="About Saptrishi Foundation" 
-        subtitle="Serving the underprivileged sections and last miles of society since 2017"
+        
       />
 
       {/* Introduction Section */}
@@ -106,17 +96,26 @@ export default function AboutPage() {
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <div className="bg-gradient-to-r from-primary-yellow/20 to-primary-orange/20 border-l-4 border-primary-orange p-6 rounded-r-lg mb-4">
                   <p className="text-gray-800 text-lg leading-relaxed">
-                    Saptrishi Foundation was conceptualized after a life-changing experience of rehabilitating an orphan child with Intellectual Disability. Navigating endless paperwork, government offices, and formalities revealed a critical gap—a lack of a unified support system for Persons with Disabilities (PwDs). Drawing from expertise in both social work and the insurance sector, we set out to create solutions that simplify and support the lives of PwDs.
+                    Saptrishi Foundation was conceptualized after a life-changing experience of rehabilitating an orphan child with an Intellectual Disability. 
+                    Navigating complex paperwork, government offices, and formalities highlighted a critical gap—a lack of a unified support system for Persons 
+                    with Disabilities (PwDs). Guided by experience in both social work and the insurance sector, we set out to create solutions that simplify 
+                    and support the lives of PwDs.
                   </p>
                 </div>
                 <p className="text-lg">
-                  <span className="font-bold text-primary-orange">Saptrishi Foundation</span> is a registered, non-profit organization set up to serve the underprivileged sections and last miles of the society. It strives to work with <span className="font-semibold">civil society, government, philanthropic institutions, and corporates</span> to create an impact at a large scale.
+                  <span className="font-bold text-primary-orange">Saptrishi Foundation</span> is a registered non-profit organization dedicated to serving 
+                  underprivileged and last-mile communities. We work collaboratively with<span className="font-semibold">civil society, government, 
+                    philanthropic institutions, and corporates</span> to create an impact at a large scale.
                 </p>
                 <p>
-                  Registered under <span className="font-semibold">Societies Registration Act and Bombay Public Trust Act in 2017</span>, the organization is working towards the inclusion and rehabilitation of people living with disabilities, health and education, street children, women empowerment and watershed development. The main aim is to empower People with Disabilities across several aspects of their life and support them to live a dignified life. In addition to this, organization is also engaged in performing dignified rituals for unknown or unclaimed human dead bodies which always face negligence.
+                  Registered under <span className="font-semibold">Societies Registration Act and Bombay Public Trust Act in 2017</span>, the foundation works 
+                  across key areas including disability inclusion and rehabilitation, health and education, and watershed development. Our core mission is to 
+                  empower Persons with Disabilities across all aspects of life and help them live with dignity.
                 </p>
                 <p>
-                  The COVID-19 pandemic underscored the urgency of our mission. We envisioned a <span className="font-semibold">digital platform</span> ensuring uninterrupted access to disability-related services—just a click away. This led to the creation of a mobile application offering hand-holding support for <span className="font-semibold">AADHAR enrollment, UDID cards, and government schemes</span>, alongside organizing free treatment camps and delivering services to the grassroots.
+                  The COVID-19 pandemic further emphasized the need for accessible support systems. In response, we developed a <span className="font-semibold">
+                  digital platform</span> and mobile application to ensure uninterrupted access to disability-related services such as <span className="font-semibold">
+                  AADHAR enrollment, UDID cards, welfare schemes, and free camps,</span> bringing essential services directly to the grassroots.
                 </p>
                 <p className="font-semibold text-primary-orange text-lg">
                   Today, we remain committed to accessibility, inclusion, and empowerment—ensuring no one is left behind.
@@ -139,12 +138,12 @@ export default function AboutPage() {
                 </div>
                 <div className="bg-gradient-to-br from-primary-orange to-orange-600 rounded-2xl p-8 text-center shadow-lg">
                   <Users className="w-12 h-12 text-white mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-white mb-2">50K+</div>
+                  <div className="text-4xl font-bold text-white mb-2">5K+</div>
                   <p className="text-white font-medium">Lives Impacted</p>
                 </div>
                 <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-8 text-center shadow-lg col-span-2">
                   <Building2 className="w-12 h-12 text-white mx-auto mb-4" />
-                  <p className="text-white font-bold text-lg mb-2">Registered Non-Profit</p>
+                  <p className="text-white font-bold text-lg mb-2">Registered Non-Profit Organisation</p>
                   <p className="text-white text-sm">Under Societies Registration & Bombay Public Trust Act</p>
                 </div>
               </div>
@@ -220,7 +219,7 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {workAreas.map((area, index) => (
               <motion.div
                 key={area.title}

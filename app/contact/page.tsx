@@ -9,7 +9,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: 'Office Address',
-      content:'Saptrishi Foundation, First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune- 411017',
+      content:'Saptrishi Foundation, C/o Manojkumar Borse First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune- 411017',
       link: null
     },
     {
@@ -17,12 +17,6 @@ export default function ContactPage() {
       title: 'Office Contact No',
       content: '+91 9172716630',
       link: 'tel:+919172716630'
-    },
-    {
-      icon: Phone,
-      title: 'Claim Related Query',
-      content: '+91 9075705939',
-      link: 'tel:+919075705939'
     },
     {
       icon: Mail,
@@ -57,7 +51,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Contact Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.title}

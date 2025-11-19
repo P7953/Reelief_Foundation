@@ -7,7 +7,24 @@ export default function PlatformSection() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
       <div className="container-custom">
+
+        {/* ⭐ Added Text Section */}
+        <motion.div
+          className="max-w-3xl mx-auto text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-gray-700 text-lg leading-relaxed">
+            Saptrishi Foundation built an application (Mobile and Web) for the differently abled community in India.
+            This concept is approved and registered with the Government of India.
+          </p>
+        </motion.div>
+        {/* ⭐ End Added Section */}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          
           {/* Login Card */}
           <motion.div
             className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border-b-4 border-primary-orange"
@@ -76,16 +93,20 @@ export default function PlatformSection() {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-3">Download App</h3>
               <p className="text-gray-600 mb-6">
-                Get our mobile app for easier access (Coming Soon)
+                Download our mobile application for quick access to all services.
               </p>
-              <button
-                disabled
-                className="btn-secondary w-full text-center opacity-50 cursor-not-allowed"
+
+              {/* APK Download Button */}
+              <a
+                href="/Saptishi%20Foundation.apk"
+                download
+                className="btn-secondary w-full text-center"
               >
-                Coming Soon
-              </button>
+                Download APK
+              </a>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

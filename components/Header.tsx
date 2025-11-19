@@ -117,8 +117,11 @@ export default function Header() {
                 <Link href="/vision-mission" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
                   Vision & Mission
                 </Link>
-                <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
+                <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
                   Contact Us
+                </Link>
+                <Link href="/our-team" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
+                  Our Team
                 </Link>
               </div>
             </div>
@@ -278,6 +281,13 @@ export default function Header() {
                             onClick={closeMobileMenu}
                           >
                             Contact Us
+                          </Link>
+                          <Link 
+                            href="/our-team" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Our Team
                           </Link>
                         </div>
                       </motion.div>

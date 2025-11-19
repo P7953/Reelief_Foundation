@@ -19,6 +19,25 @@ interface NewsItem {
 export default function NewsEventsPage() {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null)
 
+  const upcomingEvents: NewsItem[] = [
+    {
+      title: '18th Homeopathy Health Camp for Differently Abled Persons',
+      excerpt:
+        'Saptrishi Foundation and Predictive Homeopathy are gearing up for the 18th homeopathy health camp offering comprehensive care for differently abled children and adults.',
+      date: 'December 15, 2025',
+      slug: '18th-homeopathy-health-camp',
+      imageUrl:
+        'https://mahaenews.com/wp-content/uploads/2025/10/Successful-organization-of-Physical-and-Sexual-Literacy-Workshop-for-Parents-of-Special-Children-780x470.jpg',
+      content: `Saptrishi Foundation in collaboration with Predictive Homeopathy is organizing the 18th Homeopathy Health Camp on 15th December 2025 at Divyang Bhavan, Pimpri Chinchwad Municipal Corporation.
+
+The camp will provide free consultations, medicine distribution and personalized guidance to differently abled children and adults. Experienced doctors from Predictive Homeopathy, Pune will be present along with volunteer specialists and therapists to ensure holistic evaluation for every participant.
+
+Parents will receive counselling on the "Integrated One Stop Solution" app developed by Saptrishi Foundation to make key government schemes accessible. Sessions on nutrition, therapy routines and supportive assistive devices are also part of the agenda.
+
+Registrations are now open on a first-come-first-serve basis. To confirm participation or volunteer support, please connect with Saptrishi Foundation.`
+    }
+  ]
+
   const news: NewsItem[] = [
     {
       title: 'पिंपरी चिंचवड महानगरपालिकेने सप्तर्षी फाउंडेशनच्या दिव्यांग क्षेत्रातील कार्याची घेतली दखल',
@@ -156,6 +175,38 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
         subtitle="Stay updated with our latest activities and achievements"
       />
 
+      {/* Upcoming Events */}
+      <section className="section-padding bg-gradient-to-b from-white to-orange-50/40">
+        <div className="container-custom">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Upcoming Events
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Join our upcoming initiatives and programs.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {upcomingEvents.map((event, index) => (
+              <NewsCard
+                key={event.slug}
+                {...event}
+                image={event.imageUrl}
+                delay={index * 0.1}
+                onReadMore={() => setSelectedNews(event)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Latest News */}
       <section className="section-padding bg-white">
         <div className="container-custom">
@@ -170,7 +221,7 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
               Latest News & Updates
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Recent updates and announcements from Saptrishi Foundation
+              Recent updates and announcements from Saptrishi Foundation.
             </p>
           </motion.div>
 

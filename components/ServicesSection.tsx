@@ -6,33 +6,33 @@ import { Shield, BookOpen, Info, FileText, Users, Building2 } from 'lucide-react
 const services = [
   {
     icon: Building2,
-    title: 'Government Schemes',
-    description: 'Support to avail all government schemes - Central, State and Local Government benefits',
+    title: 'Welfare Schemes',
+    description: 'Easy access to information on Central, State, and Local Government welfare schemes, along with guidance to help Persons with Disabilities (PWDs) understand and avail the benefits they are eligible for.',
   },
   {
     icon: FileText,
     title: 'Document Support',
-    description: 'Assistance for obtaining essential documents like disability certificates, ID cards, and more',
+    description: 'Guidance and assistance for obtaining essential documents such as disability certificates, UDID cards, travel concessions, and other important paperwork for Persons with Disabilities (PWDs).',
   },
   {
     icon: Users,
     title: 'Divyang Camps',
-    description: 'Organization of Divyang camps and gatherings for community support and awareness',
+    description: 'A dedicated platform where users can discover various camps happening in their area—covering health check-ups, government documentation, employment support, social services, and other initiatives for Persons with Disabilities (PWDs).',
   },
   {
     icon: Shield,
     title: 'Insurance',
-    description: 'Comprehensive insurance coverage and support for differently abled individuals',
+    description: 'Guidance for securing suitable insurance coverage, along with assistance for documentation, claims, and support services tailored for Persons with Disabilities (PWDs)',
   },
   {
     icon: BookOpen,
     title: 'Resource Centre',
-    description: 'Access to educational materials, training programs, and development resources',
+    description: 'Find essential resources for Persons with Disabilities (PWDs)—including wheelchair suppliers, therapy services, medical professionals, assistive devices, and skill-development support—all in one accessible place.',
   },
   {
     icon: Info,
     title: 'Information Centre',
-    description: 'Complete information hub for services, schemes, and support available under one roof',
+    description: 'Your one-stop hub for essential information, government schemes, PWD-related GRs, and support services—keeping you informed and empowered in one place.',
   },
 ]
 
