@@ -40,15 +40,12 @@ export default function Footer() {
                 <Instagram size={18} />
               </a>
 
-              <a 
-                href="https://x.com/SaptrishiF1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter size={18} />
+              <a href="https://x.com/SaptrishiF1" target="_blank" rel="noopener noreferrer"  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"  aria-label="Twitter / X" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" >
+                    <path d="M18.21 2H21L14.07 10.09 22 22h-6.63L9.9 13.88 3.79 22H2l7.59-9.18L2 2h6.63l4.71 6.29L18.21 2zm-2.35 17.17h1.52L7.69 4.72H6.1l9.76 14.45z"/>
+                </svg>
               </a>
+
 
               <a 
                 href="https://www.youtube.com/channel/UCiSuDYU4NfCrQz7F7fD97sg"

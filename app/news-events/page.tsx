@@ -24,7 +24,7 @@ export default function NewsEventsPage() {
       title: '18th Homeopathy Health Camp for Differently Abled Persons',
       excerpt:
         'Saptrishi Foundation and Predictive Homeopathy are gearing up for the 18th homeopathy health camp offering comprehensive care for differently abled children and adults.',
-      date: 'December 15, 2025',
+      date: 'January, 2025',
       slug: '18th-homeopathy-health-camp',
       imageUrl:
         'https://mahaenews.com/wp-content/uploads/2025/10/Successful-organization-of-Physical-and-Sexual-Literacy-Workshop-for-Parents-of-Special-Children-780x470.jpg',
@@ -139,6 +139,7 @@ In this event, Shri. Manoji Borse represented vision of Saptrishi Foundation bef
       excerpt: '126 differently abled children and adults were treated free of cost at the 17th homeopathy health camp organized by Saptrishi Foundation and Predictive Homeopathy, Pune.',
       date: 'October 5, 2025',
       slug: '17th-homeopathy-health-camp',
+      imageUrl: '/images/Media/Homeopathy camp  (4).jpg',
       content: `Saptrishi Foundation and Predictive Homeopathy, Pune had conducted 17th homeopathy health camp on 5th October 2025 at Divyang Foundation, Pimpri Chinchwad Municipal Corporation. 126 differently abled children and adults were treated free of cost. This camp was organized as a tribute to inspiring memory of late Dr. Prafulla Vijaykar sir and also as a tribute to Samuel Hahnemann, the founder of homeopathy. For successful conduct of this camp, Director of Predictive Homeopathy Dr. Amrish Vijaykar and Pune branch head Dr. Rajat Malokar took efforts.
 
 This camp was inaugurated by Founder of Ashirvad Group Abhijeetji Kabule in presence of President of Nigadi Lions Club Rashmiji Nair, Shri. Ashok Yewale and his colleagues. Dr. Rajat Malokar of Predictive Homeopathy, Shri. Rahulji Jagtap of Anjanvel Agro Tourism, Founder secretary of Saptrishi Foundation Shri. Manojkumar Borase, administrative head Vrushaliji Borase and others were present.
@@ -152,6 +153,7 @@ Dr. Rajat Malokar of Predictive Homeopathy, Smt. Deepti Malokar and their team o
       excerpt: 'Dr. Sachin Nagarkar conducted a comprehensive session on guiding physical and sexual needs of special persons, organized by Saptrishi Foundation in collaboration with partner organizations.',
       date: 'September 28, 2025',
       slug: 'sexuality-awareness-workshop',
+      imageUrl: '/images/Media/Body & Sexual Awareness Camp (2).jpeg',
       content: `Session conducted by Dr. Sachin Nagarkar and dialogue with the parents
 
 Dr. Sachin Nagarkar with more than 30 years of experience on guiding physical and sexual needs of special persons and sexuality conducted a session for parents of the differently abled persons. This programme was organized on 28th September by Saptrishi Foundation in collaboration with Sobati Divyang Group, Nirvan Divyang organization and Abhisar Foundation and it took place in Divyang Bhavan, Pimpari.

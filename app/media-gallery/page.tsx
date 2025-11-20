@@ -9,177 +9,147 @@ import { useState } from 'react'
 export default function MediaGalleryPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
-  // TODO: Add your image filenames here after downloading from Google Drive
-  // and placing them in /public/images/media-gallery/
   const mediaImages = [
     {
-      src: '/images/mediagallery/20250108_114647amByGPSMapCamera.jpg',
-      alt: 'Saptrishi Foundation Media Coverage',
-      title: 'Community Outreach Program',
-      description: 'Supporting the differently abled community through dedicated initiatives'
+      src: '/images/Media/Atma Nirbhar Divyang ABhiyan (1).JPG',
+      alt: 'Atma Nirbhar Divyang ABhiyan (1)',
+      title: 'Atma Nirbhar Divyang ABhiyan.',
     },
     {
-      src: '/images/mediagallery/7.jpeg',
-      alt: 'Saptrishi Foundation Event',
-      title: 'Foundation Activities',
-      description: 'Making a difference in the lives of people with disabilities'
+      src: '/images/Media/Atma Nirbhar Divyang ABhiyan (2).JPG',
+      alt: 'Atma Nirbhar Divyang ABhiyan (2)',
+      title: 'Atma Nirbhar Divyang ABhiyan.',
     },
     {
-      src: '/images/mediagallery/IMG-20231016-WA0003.jpg',
-      alt: 'Saptrishi Foundation News',
-      title: 'Media Recognition',
-      description: 'Press coverage highlighting our impactful work'
+      src: '/images/Media/Blanket Distribution (2).jpeg',
+      alt: 'Blanket Distribution (2)',
+      title: 'Blanket Distribution.',
     },
     {
-      src: '/images/mediagallery/IMG-20250120-WA0005.jpg',
-      alt: 'Foundation Initiative',
-      title: 'Support Programs',
-      description: 'Empowering individuals through comprehensive support services'
+      src: '/images/Media/Blanket Distribution.jpeg',
+      alt: 'Blanket Distribution',
+      title: 'Blanket Distribution.',
     },
     {
-      src: '/images/mediagallery/IMG_0433.JPG',
-      alt: 'Community Event',
-      title: 'Community Engagement',
-      description: 'Building inclusive communities through collaborative efforts'
+      src: '/images/Media/Body & Sexual Awareness Camp (1).jpeg',
+      alt: 'Body & Sexual Awareness Camp (1)',
+      title: 'Body & Sexual Awareness Camp.',
     },
     {
-      src: '/images/mediagallery/IMG_0444.JPG',
-      alt: 'Foundation Work',
-      title: 'Social Impact',
-      description: 'Creating positive change in the community'
+      src: '/images/Media/Body & Sexual Awareness Camp (2).jpeg',
+      alt: 'Body & Sexual Awareness Camp (2)',
+      title: 'Body & Sexual Awareness Camp.',
     },
     {
-      src: '/images/mediagallery/IMG_20231228_170831.jpg',
-      alt: 'Press Coverage',
-      title: 'News Highlights',
-      description: 'Media recognition of our dedication to social welfare'
+      src: '/images/Media/Durga Tekdi.jpeg',
+      alt: 'Durga Tekdi',
+      title: 'Durga Tekdi Program.',
     },
     {
-      src: '/images/mediagallery/IMG_20250117_121637.jpg',
-      alt: 'Foundation Activities',
-      title: 'Program Implementation',
-      description: 'Delivering essential services to those in need'
+      src: '/images/Media/Homeopathy camp  (1).jpg',
+      alt: 'Homeopathy camp  (1)',
+      title: 'Homeopathy camp.',
     },
     {
-      src: '/images/mediagallery/IMG_20250119_113232.jpg',
-      alt: 'Community Support',
-      title: 'Assistance Programs',
-      description: 'Providing vital support to the differently abled'
+      src: '/images/Media/Homeopathy camp  (2).jpg',
+      alt: 'Homeopathy camp  (2)',
+      title: 'Homeopathy camp.',
     },
     {
-      src: '/images/mediagallery/IMG_20250622_110907.jpg',
-      alt: 'Foundation Event',
-      title: 'Awareness Campaign',
-      description: 'Raising awareness about disability rights and support'
+      src: '/images/Media/Homeopathy camp  (3).jpg',
+      alt: 'Homeopathy camp  (3)',
+      title: 'Homeopathy camp.',
     },
     {
-      src: '/images/mediagallery/IMG_20250622_180621.jpg',
-      alt: 'Media Feature',
-      title: 'Press Recognition',
-      description: 'Celebrating our contribution to the community'
+      src: '/images/Media/Homeopathy camp  (4).jpg',
+      alt: 'Homeopathy camp  (4)',
+      title: 'Homeopathy camp.',
     },
     {
-      src: '/images/mediagallery/IMG_4103.JPG',
-      alt: 'Foundation Initiative',
-      title: 'Service Delivery',
-      description: 'Implementing programs for community development'
+      src: '/images/Media/IIT Bombay.jpg',
+      alt: 'IIT Bombay',
+      title: 'IIT Bombay Presentation.',
     },
     {
-      src: '/images/mediagallery/IMG_4128.JPG',
-      alt: 'Community Work',
-      title: 'Outreach Activities',
-      description: 'Extending our reach to serve more beneficiaries'
+      src: '/images/Media/Legal Guardianship (2).JPG',
+      alt: 'Legal Guardianship (2)',
+      title: 'Legal Guardianship.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2024-06-07 at 11.07.01 AM (1).jpeg',
-      alt: 'Foundation News',
-      title: 'Media Coverage',
-      description: 'Press coverage of our social initiatives'
+      src: '/images/Media/Legal Guardianship.JPG',
+      alt: 'Legal Guardianship',
+      title: 'Legal Guardianship.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2024-08-22 at 11.25.44 AM.jpeg',
-      alt: 'Community Event',
-      title: 'Social Welfare',
-      description: 'Working towards inclusive community development'
+      src: '/images/Media/Lighthouse 8th feb 25.jpeg',
+      alt: 'Lighthouse 8th feb 25',
+      title: 'Lighthouse 8th feb 25.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-04-05 at 1.39.59 PM (1).jpeg',
-      alt: 'Foundation Activity',
-      title: 'Support Services',
-      description: 'Providing comprehensive assistance to beneficiaries'
+      src: '/images/Media/Puple Jallosh.jpg',
+      alt: 'Puple Jallosh',
+      title: 'Puple Jallosh.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-04-28 at 5.50.55 PM.jpeg',
-      alt: 'Press Feature',
-      title: 'News Recognition',
-      description: 'Media highlighting our impactful community work'
+      src: '/images/Media/Purple (2).jpg',
+      alt: 'Purple (2)',
+      title: 'Purple.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-04-28 at 5.51.02 PM.jpeg',
-      alt: 'Foundation Program',
-      title: 'Initiative Spotlight',
-      description: 'Showcasing our dedication to social causes'
+      src: '/images/Media/Purple.jpg',
+      alt: 'Purple',
+      title: 'Purple.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-07-15 at 1.20.57 PM.jpeg',
-      alt: 'Community Service',
-      title: 'Public Outreach',
-      description: 'Engaging with communities to create awareness'
+      src: '/images/Media/Shrikant (1).jpeg',
+      alt: 'Shrikant (1)',
+      title: 'Shrikant Movie.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-08-04 at 12.15.23 PM.jpeg',
-      alt: 'Foundation Event',
-      title: 'Program Activities',
-      description: 'Implementing targeted support initiatives'
+      src: '/images/Media/Shrikant (2).jpeg',
+      alt: 'Shrikant (2)',
+      title: 'Shrikant Movie.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-08-04 at 12.15.58 PM.jpeg',
-      alt: 'Media Coverage',
-      title: 'Press Highlights',
-      description: 'Recognition of our contribution to society'
+      src: '/images/Media/Shrikant (3).jpeg',
+      alt: 'Shrikant (3)',
+      title: 'Shrikant Movie.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-09-29 at 12.13.03 PM (1).jpeg',
-      alt: 'Foundation Work',
-      title: 'Community Impact',
-      description: 'Making meaningful difference in people\'s lives'
+      src: '/images/Media/Sitare Zameen PAr (1).jpeg',
+      alt: 'Sitare Zameen PAr (1)',
+      title: 'Sitare Zameen Par Movie show.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-10-06 at 1.09.31 PM.jpeg',
-      alt: 'Social Initiative',
-      title: 'Welfare Programs',
-      description: 'Supporting vulnerable communities through our programs'
+      src: '/images/Media/Sitare Zameen PAr (1).jpg',
+      alt: 'Sitare Zameen PAr (1)',
+      title: 'Sitare Zameen Par Movie show.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-10-06 at 10.46.59 PM.jpeg',
-      alt: 'Foundation Coverage',
-      title: 'Media Recognition',
-      description: 'Press coverage of our social welfare activities'
+      src: '/images/Media/Sitare Zameen PAr (2).JPG',
+      alt: 'Sitare Zameen PAr (2)',
+      title: 'Sitare Zameen Par Movie show.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-10-07 at 2.50.40 PM (1).jpeg',
-      alt: 'Community Program',
-      title: 'Service Initiatives',
-      description: 'Delivering essential services to the community'
+      src: '/images/Media/Sitare Zameen PAr (2).jpeg',
+      alt: 'Sitare Zameen PAr (2)',
+      title: 'Sitare Zameen Par Movie show.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-10-07 at 2.51.16 PM.jpeg',
-      alt: 'Foundation Activity',
-      title: 'Support Programs',
-      description: 'Providing comprehensive support to beneficiaries'
+      src: '/images/Media/Sitare Zameen PAr (3).jpeg',
+      alt: 'Sitare Zameen PAr (3)',
+      title: 'Sitare Zameen Par Movie show.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-10-07 at 2.51.35 PM.jpeg',
-      alt: 'Press Feature',
-      title: 'News Highlights',
-      description: 'Media recognition of our impactful work'
+      src: '/images/Media/Sitare Zameen par.JPG',
+      alt: 'Sitare Zameen par',
+      title: 'Sitare Zameen Par Movie show.',
     },
     {
-      src: '/images/mediagallery/WhatsApp Image 2025-10-07 at 2.51.40 PM (1).jpeg',
-      alt: 'Foundation Event',
-      title: 'Community Engagement',
-      description: 'Building stronger, more inclusive communities'
-    }
+      src: '/images/Media/Sitare.JPG',
+      alt: 'Sitare',
+      title: 'Sitare Zameen Par Movie show.',
+    },
   ]
 
   return (

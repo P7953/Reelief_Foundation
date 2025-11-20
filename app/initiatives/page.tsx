@@ -31,6 +31,45 @@ const initiativeSections = [
     ]
   },
   {
+    title: 'Special Movie Screening for Children with Disabilities',
+    description:
+      'A joyful movie event was organized at INOX Elpro City Square on 15 July 2025, where children with disabilities enjoyed a special screening of *Taare Zameen Par*. The program aimed to provide recreation, emotional comfort, and an inclusive social experience for these children.',
+    stats: [
+      { label: 'Event Date', value: '15 July 2025' },
+      { label: 'Children Participated', value: '226' },
+      
+    ],
+    images: [
+      '/images/Media/Sitare Zameen PAr (1).jpg',
+    ]
+  },  
+  {
+    title: 'Workshops & Awareness Programs for PwD Families',
+    description:
+      'We conduct regular workshops and awareness sessions for parents and persons with disabilities (PwDs), offering emotional guidance, legal knowledge, and practical strategies. These expert-led programs empower families and strengthen their ability to support special children effectively.',
+    stats: [
+      { label: 'Workshops Conducted Till 2025', value: '3'},
+       { label : 'Beneficiaries Attended the Programs', value: '900+' },
+       
+    ],
+    images: [
+      '/images/Media/Legal Guardianship.jpg',
+    ]
+  },
+
+  {
+    title: 'Sexuality Awareness Workshop for Parents of Differently-Abled Individuals',
+    description:
+      'An interactive session led by Dr. Sachin Nagarkar to help parents understand the natural emotional and sexual development of differently-abled individuals. The workshop focused on healthy expression, stress management, and supportive parenting through discussion and guided dialogue.',
+    stats: [
+      { label: 'Program Date', value: '28 September 2025' },
+      { label: 'Participants Attended', value: '100+' }
+    ],
+    images: [
+      '/images/Media/Body & Sexual Awareness Camp (2).jpeg',
+    ]
+  },
+  {
     title: 'Divyang Document Support Camps',
     description:
       'Mobile documentation desks simplify UDID, PAN, disability certification, and concessions with translators, sign-language volunteers, and on-site verification.',
@@ -93,20 +132,6 @@ const initiativeSections = [
     images: [
       '/images/about3.jpg',
     ]
-  },
-  {
-    title: 'Essential Supplies & Care Kits',
-    description:
-      'Nutrition, hygiene, and assistive devices kits are curated for PwDs living in remote clusters, ensuring continuity of care throughout the year.',
-    stats: [
-      { label: 'Care kits delivered', value: '5K+' },
-      { label: 'Assistive devices', value: '900+' },
-      { label: 'Partner NGOs', value: '22' },
-      { label: 'Annual drives', value: '04' }
-    ],
-    images: [
-      '/images/Our-Project-03.png',
-    ]
   }
 ]
 
@@ -133,9 +158,7 @@ export default function InitiativesPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm uppercase tracking-[0.4em] text-primary-orange font-semibold mb-3">
-                Initiative {index + 1}
-              </p>
+              
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {section.title}
               </h2>

@@ -83,13 +83,14 @@ export default function Header() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-orange/20 to-primary-yellow/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="flex flex-col gap-0.5">
-                <span className="text-xl sm:text-2xl md:text-[28px] font-bold bg-gradient-to-r from-primary-orange via-primary-yellow to-primary-orange bg-clip-text text-transparent leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Saptrishi
+                <span className="text-xl sm:text-2xl md:text-[28px] font-bold text-primary-orange leading-none" style={{ fontFamily: "'Playfair Display', serif" }} >
+                    Saptrishi
                 </span>
-                <span className="text-xl sm:text-2xl md:text-[28px] font-bold bg-gradient-to-r from-primary-orange via-primary-yellow to-primary-orange bg-clip-text text-transparent leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Foundation
+                <span className="text-xl sm:text-2xl md:text-[28px] font-bold text-primary-orange leading-none" style={{ fontFamily: "'Playfair Display', serif" }} >
+                    Foundation
                 </span>
               </div>
+
             </div>
           </Link>
 
