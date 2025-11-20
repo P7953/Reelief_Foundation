@@ -14,7 +14,7 @@ export default function PageHeader({ title, subtitle, backgroundImage }: PageHea
       className="relative w-full bg-gradient-to-br 
              from-primary-yellow to-primary-orange
              flex flex-col items-center justify-center text-center
-             pt-28 pb-16 sm:pt-32 sm:pb-20"
+             pt-44 pb-16 sm:pt-48 sm:pb-20 md:pt-40 md:pb-24"
       style={
         backgroundImage
         ? {
