@@ -26,8 +26,7 @@ export default function NewsEventsPage() {
         'Saptrishi Foundation and Predictive Homeopathy are gearing up for the 18th homeopathy health camp offering comprehensive care for differently abled children and adults.',
       date: 'January, 2025',
       slug: '18th-homeopathy-health-camp',
-      imageUrl:
-        'https://mahaenews.com/wp-content/uploads/2025/10/Successful-organization-of-Physical-and-Sexual-Literacy-Workshop-for-Parents-of-Special-Children-780x470.jpg',
+      imageUrl:'/images/Media/Homeopathy camp  (1).jpg',
       content: `Saptrishi Foundation in collaboration with Predictive Homeopathy is organizing the 18th Homeopathy Health Camp on 15th December 2025 at Divyang Bhavan, Pimpri Chinchwad Municipal Corporation.
 
 The camp will provide free consultations, medicine distribution and personalized guidance to differently abled children and adults. Experienced doctors from Predictive Homeopathy, Pune will be present along with volunteer specialists and therapists to ensure holistic evaluation for every participant.
