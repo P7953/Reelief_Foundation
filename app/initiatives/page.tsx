@@ -53,7 +53,7 @@ const initiativeSections = [
        
     ],
     images: [
-      '/images/Media/Legal Guardianshi.jpg',
+      '/images/Media/Guardianshi.JPG',
     ]
   },
 
