@@ -100,6 +100,7 @@ export default function PlatformSection() {
               <a
                 href="/Saptishi%20Foundation.apk"
                 download
+                
                 className="btn-secondary w-full text-center"
               >
                 Download APK

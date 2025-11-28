@@ -30,19 +30,7 @@ const initiativeSections = [
       '/images/Homeopathy.jpeg',
     ]
   },
-  {
-    title: 'Special Movie Screening for Children with Disabilities',
-    description:
-      'A joyful movie event was organized at INOX Elpro City Square on 15 July 2025, where children with disabilities enjoyed a special screening of *Taare Zameen Par*. The program aimed to provide recreation, emotional comfort, and an inclusive social experience for these children.',
-    stats: [
-      { label: 'Event Date', value: '15 July 2025' },
-      { label: 'Children Participated', value: '226' },
-      
-    ],
-    images: [
-      '/images/Media/Sitare Zameen PAr (1).jpg',
-    ]
-  },  
+   
   {
     title: 'Workshops & Awareness Programs for PwD Families',
     description:
@@ -81,16 +69,19 @@ const initiativeSections = [
     ]
   },
   {
-    title: 'Funeral of Unclaimed Persons',
+    title: 'Special Movie Screening for Children with Disabilities',
     description:
-      'Ensuring dignified last rites for unclaimed human remains through documentation support, rituals, and compassionate volunteer involvement.',
+      'A joyful movie event was organized at INOX Elpro City Square on 15 July 2025, where children with disabilities enjoyed a special screening of *Taare Zameen Par*. The program aimed to provide recreation, emotional comfort, and an inclusive social experience for these children.',
     stats: [
-      { label: 'Funerals conducted', value: '900+' }, 
+      { label: 'Event Date', value: '15 July 2025' },
+      { label: 'Children Participated', value: '226' },
+      
     ],
     images: [
-      '/images/Dead.jpg',
+      '/images/Media/Sitare Zameen PAr (1).jpg',
     ]
-  },
+  }, 
+  
   {
     title: 'Blanket Distribution Program',
     description:
@@ -131,6 +122,17 @@ const initiativeSections = [
     ],
     images: [
       '/images/about3.jpg',
+    ]
+  },
+  {
+    title: 'Funeral of Unclaimed Persons',
+    description:
+      'Ensuring dignified last rites for unclaimed human remains through documentation support, rituals, and compassionate volunteer involvement.',
+    stats: [
+      { label: 'Funerals conducted', value: '900+' }, 
+    ],
+    images: [
+      '/images/Dead.jpg',
     ]
   }
 ]

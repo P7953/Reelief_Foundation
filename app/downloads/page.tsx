@@ -22,18 +22,16 @@ export default function DownloadsPage() {
       category: 'Information Brochures',
       icon: BookOpen,
       items: [
-        { name: 'Organization Brochure', size: 'Coming Soon', href: '#', type: 'pdf' },
-        { name: 'Services Guide', size: 'Coming Soon', href: '#', type: 'pdf' },
-        { name: 'Government Schemes List', size: 'Coming Soon', href: '#', type: 'pdf' }
+        { name: 'Foundation Profile', size: '19 MB', href: '/Profile.pdf', type: 'pdf' },
+        { name: 'Services Guide', size: 'Coming Soon', href: '#', type: 'pdf' }
       ]
     },
     {
       category: 'Reports & Documents',
       icon: FileText,
       items: [
-        { name: 'Annual Report 2024-25', size: 'Coming Soon', href: '#', type: 'pdf' },
-        { name: 'Impact Report', size: 'Coming Soon', href: '#', type: 'pdf' },
-        { name: '80G Certificate Sample', size: 'Coming Soon', href: '#', type: 'pdf' }
+        { name: 'Annual Report 2024-26', size: '2 MB', href: '/Annual.pdf', type: 'pdf' },
+        { name: '80G Certificate Sample', size: '150 KB', href: '/80G.pdf', type: 'pdf' }
       ]
     }
   ]

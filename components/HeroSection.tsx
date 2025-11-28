@@ -30,22 +30,21 @@ export default function HeroSection() {
       {/* Content */}
       <div className="container-custom relative z-10 text-center pt-20">
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-gray-800 mb-6"
+          className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Your Contribution can <br />
-          change someone&apos;s life
+          Foundation that Empowering Every Ability, Serving Every Last Mile.
         </motion.h1>
         
         <motion.p
-          className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-gray-800 mb-8 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Pioneer initiative in India for integrated one stop solution for all types of Person with Disabilities and their families
+          India’s first integrated, one-stop ecosystem for Persons with Disabilities and their families.
         </motion.p>
 
         <motion.div

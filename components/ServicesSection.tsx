@@ -62,8 +62,16 @@ export default function ServicesSection() {
               className="icon-box"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ 
+                duration: 0.2,
+                type: 'tween',
+                ease: 'easeInOut'
+              }}
             >
               <div className="icon-box-icon">
                 <service.icon size={40} className="text-primary-orange" />

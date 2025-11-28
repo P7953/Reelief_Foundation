@@ -118,9 +118,6 @@ export default function Header() {
                 <Link href="/vision-mission" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
                   Vision & Mission
                 </Link>
-                <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
-                  Contact Us
-                </Link>
                 <Link href="/our-team" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
                   Our Team
                 </Link>
@@ -151,21 +148,6 @@ export default function Header() {
               </div>
             </div>
 
-            {/* What We Do */}
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-primary-orange transition-colors font-medium flex items-center gap-1">
-                What We Do
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-lg">
-                  Our Initiatives
-                </Link>
-              </div>
-            </div>
-
             {/* Our Offering */}
             <div className="relative group">
               <button className="text-gray-700 hover:text-primary-orange transition-colors font-medium flex items-center gap-1">
@@ -175,6 +157,9 @@ export default function Header() {
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-lg">
+                  Our Initiatives
+                </Link>
                 <Link href="/media-gallery" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
                   Media Gallery
                 </Link>
@@ -186,6 +171,19 @@ export default function Header() {
                 </Link>
               </div>
             </div>
+
+
+            {/* Contact Us */}
+            <Link 
+              href="/contact" 
+              className="text-gray-700 hover:text-primary-orange transition-colors font-medium"
+            >
+              Contact US
+            </Link>
+              
+            
+
+            
             
             <a 
               href="https://rzp.io/l/saptrishifoundation" 
