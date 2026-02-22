@@ -65,7 +65,7 @@ export default function AssociatesPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-gradient-to-br from-primary-yellow to-primary-orange">
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c4b5fd 100%)' }}>
         <div className="container-custom">
           <motion.div
             className="text-center max-w-3xl mx-auto"
@@ -81,7 +81,7 @@ export default function AssociatesPage() {
             <p className="text-xl text-gray-800 mb-8">
               Join our network of partners and help us create a more inclusive society
             </p>
-            <a href="/contact" className="btn-primary bg-white text-primary-orange hover:bg-gray-100">
+            <a href="/contact" className="border-2 border-white text-white px-9 py-4 rounded-full font-semibold text-base hover:bg-white hover:text-gray-900 transition-all duration-200 hover:scale-105 active:scale-95">
               Become a Partner
             </a>
           </motion.div>

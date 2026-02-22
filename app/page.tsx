@@ -1,18 +1,17 @@
 import HeroSection from '@/components/HeroSection'
+import StatsSection from '@/components/StatsSection'
 import ServicesSection from '@/components/ServicesSection'
-import PlatformSection from '@/components/PlatformSection'
-import AboutSection from '@/components/AboutSection'
-import DonationBanner from '@/components/DonationBanner'
-
+import GallerySection from '@/components/GallerySection'
+import CallToActionSection from '@/components/CallToActionSection'
 
 export default function Home() {
   return (
-    <>
+    <main className="overflow-x-hidden">
       <HeroSection />
+      <StatsSection />
       <ServicesSection />
-      <PlatformSection />
-      <AboutSection />
-      <DonationBanner />
-    </>
+      <GallerySection />
+      <CallToActionSection />
+    </main>
   )
 }

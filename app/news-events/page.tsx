@@ -4,8 +4,13 @@ import { useState } from 'react'
 import PageHeader from '@/components/PageHeader'
 import NewsCard from '@/components/NewsCard'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Calendar, Newspaper, Image as ImageIcon, Users } from 'lucide-react'
 
+/* ─────────────────────── CONSTANTS ─────────────────────── */
+const GRADIENT = 'linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c4b5fd 100%)'
+const GRADIENT_SOFT = 'linear-gradient(135deg, #f0fbff 0%, #f5f3ff 100%)'
+
+/* ─────────────────────── TYPES ─────────────────────────── */
 interface NewsItem {
   title: string
   excerpt: string
@@ -16,185 +21,212 @@ interface NewsItem {
   newsLink?: string
 }
 
+interface NewsCutout {
+  title: string
+  date: string
+  image: string
+}
+
+/* ─────────────────────── DATA ───────────────────────────── */
+
+const upcomingEvents: NewsItem[] = [
+  {
+    title: 'Free Health Check-Up Camp for Persons with Disabilities',
+    excerpt: 'Reelief Foundation is organizing a free health check-up camp in collaboration with local hospitals. Medical consultants, physiotherapists, and specialists will be present.',
+    date: 'March 15, 2026',
+    slug: 'free-health-camp-march-2026',
+    imageUrl: '/images/Media/Health.jpeg',
+    content: `Reelief Foundation in collaboration with City General Hospital is organizing a Free Health Check-Up Camp on 15th March 2026 at Divyang Bhavan, Pimpri Chinchwad.
+
+The camp will provide free consultations, diagnostic services, and medicine distribution to differently abled children and adults. Experienced doctors and volunteer therapists will be present to ensure holistic evaluation for every participant.
+
+Parents and caregivers will receive counselling and information about the Foundation's integrated support services and government welfare schemes.
+
+Registrations are now open on a first-come-first-serve basis. For more information or to register, please contact Reelief Foundation.`,
+  },
+  {
+    title: 'Workshop on Legal Rights & Government Schemes for PwD Families',
+    excerpt: 'An awareness workshop covering legal rights, UDID registration, Niramaya Health Insurance, and other key government provisions for persons with disabilities and their families.',
+    date: 'April 5, 2026',
+    slug: 'legal-rights-workshop-april-2026',
+    imageUrl: '/images/Media/Awareness.jpeg',
+    content: `Reelief Foundation is organizing a Workshop on Legal Rights & Government Schemes for PwD Families on 5th April 2026 at Divyang Bhavan, Pimpri.
+
+This workshop will cover important topics including UDID card registration, Niramaya Health Insurance, legal guardianship, disability pension schemes, and other key government entitlements.
+
+Expert speakers from legal and social work backgrounds will be present. The session will be conducted in Marathi and Hindi.
+
+All parents, caregivers, and individuals with disabilities are welcome to attend. Entry is free of cost.`,
+  },
+  {
+    title: 'Annual Foundation Day Celebration & Award Ceremony',
+    excerpt: "Join us for Reelief Foundation's Annual Foundation Day — a celebration of 15+ years of service with cultural programs, felicitation of beneficiaries, and community gathering.",
+    date: 'May 12, 2026',
+    slug: 'foundation-day-2026',
+    content: `Reelief Foundation is pleased to announce its Annual Foundation Day Celebration & Award Ceremony on 12th May 2026 at Auditorium Hall, Pimpri.
+
+The event will celebrate over 15 years of dedicated service to marginalized communities. The program will include cultural performances by specially-abled children, felicitation of outstanding volunteers and beneficiaries, and a community gathering.
+
+Chief Guests from government and social sector will be present. The event is open to all supporters, donors, volunteers, and beneficiaries.
+
+All are warmly invited to participate and celebrate this milestone together.`,
+  },
+]
+
+const newsItems: NewsItem[] = [
+  {
+    title: 'Reelief Foundation Launches Integrated Digital Support App for PwD Families',
+    excerpt: 'A first-of-its-kind One-Stop Solution mobile application has been launched, giving differently-abled individuals access to all government schemes and services at the tap of a button.',
+    date: 'January 2026',
+    slug: 'one-stop-app-launch',
+    imageUrl: '/images/Media/Health2.jpeg',
+    content: `Reelief Foundation has successfully launched its Integrated One-Stop Solution platform, a first-of-its-kind initiative in India.
+
+The mobile application enables differently-abled individuals and their families to access government welfare schemes, documentation services, and claim facilities from a single digital interface.
+
+The app has received copyright approval from the Government of India and has been registered under the patent act. Within the first year of launch, over 1,100 families have registered on the platform.
+
+The platform has processed 314 document services, 435 welfare scheme applications, and 416 claim services — significantly reducing bureaucratic barriers for PwD families.`,
+  },
+  {
+    title: '17th Free Homeopathy Health Camp Successfully Conducted',
+    excerpt: '126 differently-abled children and adults were treated free of cost at the 17th homeopathy health camp organized by Reelief Foundation in collaboration with Predictive Homeopathy.',
+    date: 'October 2025',
+    slug: '17th-homeopathy-camp',
+    imageUrl: '/images/Media/Health.jpeg',
+    content: `Reelief Foundation successfully conducted its 17th Free Homeopathy Health Camp on 5th October 2025 at Divyang Bhavan, Pimpri Chinchwad.
+
+126 differently-abled children and adults received free homeopathic consultations and medicines. The camp was organized as a tribute to the inspiring memory of late Dr. Prafulla Vijaykar.
+
+Expert doctors from Predictive Homeopathy, Pune provided comprehensive consultations and personalized treatment plans. Volunteers from partner organizations ensured smooth conduction of the camp.
+
+The Foundation has now conducted 17 such camps since inception, benefiting over 2,000 individuals across Pune district.`,
+  },
+  {
+    title: 'Special Movie Screening "Taare Zameen Par" for 226 Specially-Abled Children',
+    excerpt: 'Reelief Foundation organized a special inclusive movie screening for 226 differently-abled children and their families — with many experiencing a cinema hall for the very first time.',
+    date: 'July 2025',
+    slug: 'movie-screening-taare-zameen-par',
+    imageUrl: '/images/Media/Checkup.jpeg',
+    content: `Reelief Foundation organized a special movie screening of Taare Zameen Par at INOX Elpro City Square, Chinchwad on 12th July 2025.
+
+226 specially-abled children along with their families attended the event. Many families shared that they had visited a cinema hall for the very first time with their special child — a joyful experience they will remember always.
+
+The event was organized in collaboration with Socio Infinity Group. The screening aimed to provide recreation, emotional comfort, and an inclusive social experience for the children.
+
+Reelief Foundation plans to organize more such inclusive recreation events in the coming months.`,
+  },
+  {
+    title: 'Foundation Marks 15 Years of Conducting Dignified Last Rites for Unclaimed Persons',
+    excerpt: 'Reelief Foundation completes 15 years of a unique compassionate service — providing dignified cremation and last rites for unclaimed deceased individuals with no government aid.',
+    date: 'July 2025',
+    slug: 'fifteen-years-last-rites-service',
+    content: `Reelief Foundation has marked a significant milestone — 15 years of conducting dignified last rites for unclaimed deceased persons across Pune.
+
+Since 2010, the Foundation has performed last rites for over 900 individuals — entirely self-funded, without any government grant or subsidy. The work is carried out in coordination with police and hospital authorities.
+
+Founder Secretary Manoji Borse has led this service since its inception, emphasizing that every human being deserves dignity — in life and in death.
+
+The Foundation calls upon volunteers, donors, and organizations to support this noble cause.`,
+  },
+  {
+    title: 'Reelief Foundation Represented at International Purple Fest, Goa 2025',
+    excerpt: 'Founder Secretary Manoji Borse represented Reelief Foundation at the International Purple Fest — a global inclusion event — and presented the One-Stop Solution initiative to senior dignitaries.',
+    date: 'October 2025',
+    slug: 'purple-fest-goa-2025',
+    imageUrl: '/images/Media/Health3.jpeg',
+    content: `Reelief Foundation was represented at the International Purple Fest Goa 2025, a landmark global event promoting inclusion and accessibility, held from October 9–12, 2025.
+
+Founder Secretary Manoji Borse, accompanied by Baburao Ahire and Haridas Shinde, attended the event. They had the opportunity to interact with senior government dignitaries including Ministers and IAS officers.
+
+Manoji Borse presented the unique One-Stop Solution initiative before the gathering, highlighting its impact on PwD families and its scalability across India.
+
+The event was hosted in collaboration with the Ministry of Social Justice and Empowerment, Government of India, and United Nations India.`,
+  },
+  {
+    title: 'Sexuality Awareness Workshop for Parents of Differently-Abled Persons',
+    excerpt: 'Dr. Sachin Nagarkar led a transformative session helping parents understand the emotional and sexual development of differently-abled individuals — reframing perspectives with empathy.',
+    date: 'September 2025',
+    slug: 'sexuality-awareness-workshop',
+    imageUrl: '/images/Media/Health4.jpeg',
+    content: `Reelief Foundation organized a Sexuality Awareness Workshop for Parents of Differently-Abled Persons on 28th September 2025 at Divyang Bhavan, Pimpri.
+
+Dr. Sachin Nagarkar, with over 30 years of experience on the subject, guided participants through discussion, dialogue, and brainstorming. He emphasized that sexuality is natural and innate — and that differently-abled individuals experience the same emotions.
+
+Parents expressed that the workshop gave them a new perspective and a sense of relief. Many requested more such sessions in the future.
+
+The event was organized in collaboration with Sobati Divyang Group, Nirvan Divyang Organization, and Abhisar Foundation.`,
+  },
+]
+
+const newsCutouts: NewsCutout[] = [
+  {
+    title: "Foundation's One-Stop Solution Featured in Pune Mirror",
+    date: 'December 2025',
+    image: '/images/cutout-1.jpg',
+  },
+  {
+    title: 'Homeopathy Camp Coverage — Maharashtra Times',
+    date: 'October 2025',
+    image: '/images/cutout-2.jpg',
+  },
+]
+
+/* ─────────────────────── HELPERS ────────────────────────── */
+function SectionHeading({
+  icon: Icon,
+  badge,
+  title,
+  subtitle,
+}: {
+  icon: React.ElementType
+  badge: string
+  title: string
+  subtitle: string
+}) {
+  return (
+    <motion.div
+      className="text-center mb-12"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <div
+        className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-5 text-sm font-semibold uppercase tracking-widest text-sky-600"
+        style={{ background: 'linear-gradient(135deg,#e0f7ff,#ede9fe)' }}
+      >
+        <Icon size={14} /> {badge}
+      </div>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">{title}</h2>
+      <div className="w-20 h-1 mx-auto rounded-full mb-5" style={{ background: GRADIENT }} />
+      <p className="text-gray-500 max-w-xl mx-auto text-base md:text-lg">{subtitle}</p>
+    </motion.div>
+  )
+}
+
+/* ─────────────────────── PAGE ───────────────────────────── */
 export default function NewsEventsPage() {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null)
 
-  const upcomingEvents: NewsItem[] = [
-    {
-      title: '18th Homeopathy Health Camp for Differently Abled Persons',
-      excerpt:
-        'Saptrishi Foundation and Predictive Homeopathy are gearing up for the 18th homeopathy health camp offering comprehensive care for differently abled children and adults.',
-      date: 'January, 2025',
-      slug: '18th-homeopathy-health-camp',
-      imageUrl:'/images/Media/Homeopathy camp  (1).jpg',
-      content: `Saptrishi Foundation in collaboration with Predictive Homeopathy is organizing the 18th Homeopathy Health Camp on 15th December 2025 at Divyang Bhavan, Pimpri Chinchwad Municipal Corporation.
-
-The camp will provide free consultations, medicine distribution and personalized guidance to differently abled children and adults. Experienced doctors from Predictive Homeopathy, Pune will be present along with volunteer specialists and therapists to ensure holistic evaluation for every participant.
-
-Parents will receive counselling on the "Integrated One Stop Solution" app developed by Saptrishi Foundation to make key government schemes accessible. Sessions on nutrition, therapy routines and supportive assistive devices are also part of the agenda.
-
-Registrations are now open on a first-come-first-serve basis. To confirm participation or volunteer support, please connect with Saptrishi Foundation.`
-    }
-  ]
-
-  const news: NewsItem[] = [
-    {
-      title: 'पिंपरी चिंचवड महानगरपालिकेने सप्तर्षी फाउंडेशनच्या दिव्यांग क्षेत्रातील कार्याची घेतली दखल',
-      excerpt: 'सप्तर्षी फाउंडेशनचे भारतातील पहिले इंटिग्रेटेड वन स्टॉप सोल्युशन संकल्पनेची निर्मिती',
-      date: 'November 2025',
-      slug: 'pcmc-takes-notice-saptarshi-work',
-      imageUrl: 'https://mahaenews.com/wp-content/uploads/2024/12/divyanga-dina-780x470.jpg',
-      newsLink: 'https://mahaenews.com/pimpri-chinchwad/pimpri-chinchwad-municipal-corporation-saptarshi-foundation-divyang-area-work-intervention/',
-      content: `पिंपरी चिंचवड महानगरपालिकेने सप्तर्षी फाउंडेशनच्या दिव्यांग क्षेत्रातील कार्याची घेतली दखल. सप्तर्षी फाउंडेशनचे भारतातील पहिले इंटिग्रेटेड वन स्टॉप सोल्युशन संकल्पनेची निर्मिती.
-
-For detailed coverage of this news story, please visit MahaENews.`
-    },
-    {
-      title: 'मुव्ही चले हम - सितारे जमीन पे चित्रपटाचे विशेष प्रक्षेपण यशस्वी रित्या संपन्न',
-      excerpt: 'सोशियो इन्फिलिटी ग्रुप यांच्या पुढाकाराने सप्तर्षी फाउंडेशनने केले अप्रतिम आयोजन',
-      date: 'July 2025',
-      slug: 'movie-screening-sitare-zameen-pe',
-      imageUrl: 'https://mahaenews.com/wp-content/uploads/2025/07/The-special-screening-of-the-film-Movie-Chale-Hum-Sitare-Zameen-Pe-was-successfully-held.-780x470.jpg',
-      newsLink: 'https://mahaenews.com/pimpri-chinchwad/the-special-screening-of-the-film-movie-chale-hum-sitare-zameen-pe-was-successfully-held/',
-      content: `पिंपरी | 12 जुलै 2025 रोजी विशेष मुले व त्यांच्या कुटुंबियांसाठी आयोजित कार्यक्रमात इनॉक्स चित्रपटगृह, चिंचवड येथे 226 जणांनी सितारे जमीन पे या सिने अभिनेते आमिर खान दिग्दर्शित विशेष मुलांच्या व व्यक्तींच्या जीवनावर व संघर्षावर आधारित चित्रपटाचे विशेष प्रक्षेपण करण्यात आले.
-
-चित्रपट पाहायला आलेल्या कुटुंबीयांपैकी अनेक कुटुंबांनी आपल्या विशेष मुलांसोबत पहिल्यांदाच चित्रपट गृहात जाऊन चित्रपट पाहिल्याचे सांगितले.
-
-For detailed coverage of this special event, please visit MahaENews.`
-    },
-    {
-      title: '77 वर्षीय बेवारस मृत महिलेवर सप्तर्षी फाउंडेशनद्वारे अंत्यसंस्कार; सामाजिक सेवेला 15 वर्षे पूर्ण',
-      excerpt: 'सप्तर्षी फाउंडेशनद्वारे 77 वर्षीय बेवारस मृत महिलेवर अंत्यसंस्कार. सामाजिक सेवेला 15 वर्षे पूर्ण.',
-      date: 'July 2025',
-      slug: 'funeral-service-15-years-completion',
-      imageUrl: 'https://mahaenews.com/wp-content/uploads/2025/07/77-year-old-orphaned-woman-cremated-by-Saptarshi-Foundation-Completes-15-years-of-social-service-780x470.jpg',
-      newsLink: 'https://mahaenews.com/pimpri-chinchwad/77-year-old-orphaned-woman-cremated-by-saptarshi-foundation-completes-15-years-of-social-service/',
-      content: `पिंपरी | पिंपरी चिंचवड येथील थेरगाव परिसरात वासंती पवार नामक 77 वर्षीय ज्येष्ठ महिला एकट्याच वास्तव्यास होत्या, आजारपणामुळे यशवंतराव चव्हाण रुग्णालयात शेजाऱ्यामार्फत दाखल करण्यात आले, परंतु आजारपणामुळे व वयोवृद्ध असल्याने रुग्णालयात त्यांचा मृत्यू झाला.
-
-वाकड पोलिसांच्या वतीने सप्तर्षी फाउंडेशनला संपर्क साधून सहकार्य करण्यासाठी विनंती केली. सामाजिक व संवेदनशील कार्यात सदैव तत्पर असलेले श्री. मनोजकुमार साहेबराव बोरसे यांनी तात्काळ नियोजन करून पोलीस प्रशासनासोबत मिळून अंत्यविधीची प्रक्रिया पार पाडली.
-
-2011 वर्षी सदर कार्य श्री मनोज बोरसे यांनी त्यांच्या आध्यात्मिक गुरूंच्या मार्गदर्शनाखाली सर्व वरिष्ठ गुरुबंधू व सहकार्याच्या माध्यमातून सुरू केले, आजवर 900 पेक्षा अधिक अंत्यविधी कोणत्याही शासकीय अनुदानशिवाय स्वखर्चाने पार पाडण्यात आले.
-
-For detailed coverage of this compassionate service, please visit MahaENews.`
-    },
-    {
-      title: 'मनोज बोरसे सर यांचा दिल्ली दौरा सकारात्मक - सप्तर्षी फाउंडेशनचा दिव्यांग बांधवांच्या सेवांविषयी पाठपुरावा यशस्वी',
-      excerpt: 'मनोज बोरसे सर यांचा दिल्ली दौरा सकारात्मक. सप्तर्षी फाउंडेशनचा दिव्यांग बांधवांच्या सेवांविषयी पाठपुरावा यशस्वी.',
-      date: 'August 2025',
-      slug: 'manoj-borse-delhi-visit',
-      imageUrl: 'https://mahaenews.com/wp-content/uploads/2025/08/Manoj-Borse-Sirs-Delhi-visit-positive-780x470.jpg',
-      newsLink: 'https://mahaenews.com/pimpri-chinchwad/manoj-borse-sirs-delhi-visit-was-positive-saptarshi-foundations-follow-up-on-services-for-disabled-brothers-was-successful/',
-      content: `पिंपरी | सप्तर्षी फाउंडेशन दिव्यांग बांधवांसाठी निरंतर सकारात्मक बदल आणण्यासाठी अनेक वर्षे कार्यरत आहे. दिव्यांग बांधवांच्या विविध प्रश्न संदर्भात 29 जुलै ते ऑगस्ट 2025 दरम्यान यशस्वी नियोजन करण्यात आले.
-
-सदर दौऱ्यात खालील सेवा तसेच योजनांविषयी यशस्वीरित्या प्रयत्न करण्यात आले:
-
-1) निरामय आरोग्य विमा योजना - नॅशनल ट्रस्ट, मेडीअसिस्ट टीपीए तसेच ओरिएंटल इन्शुरन्स कंपनी यांच्याशी भेटी. प्रलंबित असलेल्या क्लेम मधील अन्यायकारक रिजेक्शन 10 ऑगस्ट पर्यंत संबंधित यंत्रणेकडून करण्याचे आश्वासन देण्यात आले.
-
-2) कायदेशीर पालकत्व - नॅशनल ट्रस्ट यांच्याशी भेट. यासंदर्भात बहुतेक सर्व प्रक्रिया पूर्ण असल्यास सहकार्य करण्याची इच्छा यंत्रणेकडून व्यक्त करण्यात आली.
-
-3) यू.डी.आई.डी. (वैश्विक दिव्यांग ओळखपत्र) - दिव्यांग सशक्तिकरण विभाग, भारत सरकार, दिल्ली यांच्याशी भेट. वैश्विक दिव्यांग ओळखपत्र विभागाचे संचालक श्री. विनीत सिंघल साहेब यांच्याशी अतिशय सकारात्मक चर्चा झाली.
-
-For detailed coverage of this Delhi visit and its outcomes, please visit MahaENews.`
-    },
-    {
-      title: 'विशेष मुलांच्या पालकांसाठी शारीरिक व लैंगिक साक्षरता कार्यशाळेचे यशस्वी आयोजन',
-      excerpt: 'डॉ. सचिन नगरकर सरांचे व्याख्यान व दिव्यांग पालकांसोबत संवाद',
-      date: 'September 2025',
-      slug: 'physical-sexual-literacy-workshop',
-      imageUrl: 'https://mahaenews.com/wp-content/uploads/2025/10/Successful-organization-of-Physical-and-Sexual-Literacy-Workshop-for-Parents-of-Special-Children-780x470.jpg',
-      newsLink: 'https://mahaenews.com/helth/successful-organization-of-physical-and-sexual-literacy-workshop-for-parents-of-special-children/',
-      content: `पिंपरी | बौद्धिकदृष्ट्या अक्षमता व स्वमग्न व्यक्तींच्या शारीरिक गरजा व लैंगिक साक्षरता ह्या विषयावर मार्गदर्शन करण्याचा 30 वर्षांपेक्षा अधिक अनुभव असलेल्या डॉ. सचिन नगरकर सरांचे व्याख्यान व प्रत्यक्ष संवाद कार्यक्रम सोबती दिव्यांग ग्रूपद्वारे, पिंपरीतील दिव्यांग भवन येथे 28 सप्टेंबर रोजी आयोजित केला गेला.
-
-या कार्यक्रमामध्ये दिव्यांग व्यक्तींचे पालक, सामाजिक संस्थांचे प्रतिनिधी आणि ह्या विषयावर कार्यरत असलेल्या व्यक्तींनी सहभाग घेतला. डॉ. सचिन नगरकर सरांनी चर्चा, संवाद व ब्रेनस्टॉर्मिंगद्वारे उपस्थितांना मार्गदर्शन केले.
-
-सप्तर्षी फाउंडेशनचे सचिव मनोज बोरसे ह्यांनी फाउंडेशनच्या कामाची व 'वन स्टॉप सोल्युशनची' माहिती दिली.
-
-For detailed coverage of this important workshop, please visit MahaENews.`
-    },
-    {
-      title: 'Saptrishi Foundation participated in International Purple Festival, Goa',
-      excerpt: 'Founder Secretary Manoji Borse represented Saptrishi Foundation at the International Purple Fest Goa 2025, a landmark global event promoting inclusion and accessibility.',
-      date: 'October 9-12, 2025',
-      slug: 'international-purple-festival-goa-2025',
-      content: `The International Purple Fest Goa 2025 is a landmark global event promoting inclusion and accessibility. Scheduled from October 9th to 12th, 2025, it is hosted by the Department for Empowerment of Persons with Disabilities and the Office of the State Commissioner for Persons with Disabilities, Government of Goa, in collaboration with the Ministry of Social Justice and Empowerment, Government of India, and United Nations India. The Fest centers on cultivating Inclusive Thinking as the foundation for Universal Design.
-
-Founder Secretary of Saptrishi Foundation, Manoji Borse participated in this festival with Baburao Ahire and Haridas Shinde and represented Saptrishi Foundation. They also got opportunity to interact with senior dignitaries and senior Government officials. He mainly interacted with Subhash Phal Dessai, the Minister for Social Welfare, Empowerment of Persons with Disabilities, and River Navigation in the Government of Goa, Mr. Omprakash Deshmukh, Managing Director of PCMC Divyang Bhavan, Mr. Guruprasad Pawaskar, Commissioner, Disability Department, State Government of Goa, the Secretary Taha Haziq, Mr. Vineet Singhal, Director of UDID Project, Government of India and others.
-
-Mr. Manojji presented his work and shared the concept of the one-stop solution project of Saptrishi Foundation. He highlighted its uniqueness and how it can positively impact the differently abled people. He thanked all dignitaries and the Government for their support.`
-    },
-    {
-      title: 'Participation at World Cerebral Palsy Day Celebration in Sancheti Hospital',
-      excerpt: 'Founder Secretary Manoji Borse participated at the World Cerebral Palsy Day celebration event on 6th October at Sancheti Hospital with CP warriors, their families and team of experts.',
-      date: 'October 6, 2025',
-      slug: 'world-cerebral-palsy-day-sancheti-hospital',
-      content: `Founder Secretary of Saptrishi Foundation, Manoji Borse participated at the World Cerebral Palsy Day celebration event taken place in Sancheti Hospital on 6th October. This day was celebrated at Sancheti Hospital with CP warriors, their families and team of experts working in this field. This year's theme was #UniqueandUnited.
-
-Mrs. Sangita Davkhar, Asst. Commissioner (Disability), Pune was the chief guest. This event was attended by the Chairman Dr. Parag Sancheti and other doctors.
-
-In this event, Shri. Manoji Borse represented vision of Saptrishi Foundation before the audience. He shared vision behind the "one stop solution" for the differently abled persons and highlighted its importance. It is the first of its kind of initiative in all India. With this app, the differently abled persons will access all Government schemes at one click. Other dignitaries appreciated this initiative of Saptrishi Foundation and wished it success.`
-    },
-    {
-      title: 'Conduction of 17th Homeopathy Health camp for Differently abled persons',
-      excerpt: '126 differently abled children and adults were treated free of cost at the 17th homeopathy health camp organized by Saptrishi Foundation and Predictive Homeopathy, Pune.',
-      date: 'October 5, 2025',
-      slug: '17th-homeopathy-health-camp',
-      imageUrl: '/images/Media/Homeopathy camp  (4).jpg',
-      content: `Saptrishi Foundation and Predictive Homeopathy, Pune had conducted 17th homeopathy health camp on 5th October 2025 at Divyang Foundation, Pimpri Chinchwad Municipal Corporation. 126 differently abled children and adults were treated free of cost. This camp was organized as a tribute to inspiring memory of late Dr. Prafulla Vijaykar sir and also as a tribute to Samuel Hahnemann, the founder of homeopathy. For successful conduct of this camp, Director of Predictive Homeopathy Dr. Amrish Vijaykar and Pune branch head Dr. Rajat Malokar took efforts.
-
-This camp was inaugurated by Founder of Ashirvad Group Abhijeetji Kabule in presence of President of Nigadi Lions Club Rashmiji Nair, Shri. Ashok Yewale and his colleagues. Dr. Rajat Malokar of Predictive Homeopathy, Shri. Rahulji Jagtap of Anjanvel Agro Tourism, Founder secretary of Saptrishi Foundation Shri. Manojkumar Borase, administrative head Vrushaliji Borase and others were present.
-
-In this programme, the expert doctors provided guidance for various problems faced by the differently abled persons. Information related to the software developed for the differently abled persons under the "integrated one stop solution" was given in this camp. Under this project, various governmental and private facilities have been made available to the differently abled persons through the mobile app. It has been received approval from Copyright Department of Government of India and it has also been registered under the patent act. Under this project, all benefits of Governmental schemes have been made available to Divyang persons on one click. It has been provided to be a one click source for all stakeholders in this field. It is a unique bridge and it is first of its kind of initiative in India and its implementation has started in Pimpri-Chinchwad, Shri. Manojji Borase stated.
-
-Dr. Rajat Malokar of Predictive Homeopathy, Smt. Deepti Malokar and their team of doctors participated zestfully and served the patients. Three doctors had come from Solapur. Volunteers from Saptrishi Foundation, Divyang Bhavan and Nirvan Divyang Sanstha helped for smooth conduction. Shri. Abhijeet Kabule provided financial assistance. Tarachand Ramnath Seva Trust also helped for this camp. Shri. Manojji Borase thanked all volunteers for their support.`
-    },
-    {
-      title: 'Sexuality awareness workshop for parents of differently abled',
-      excerpt: 'Dr. Sachin Nagarkar conducted a comprehensive session on guiding physical and sexual needs of special persons, organized by Saptrishi Foundation in collaboration with partner organizations.',
-      date: 'September 28, 2025',
-      slug: 'sexuality-awareness-workshop',
-      imageUrl: '/images/Media/Body & Sexual Awareness Camp (2).jpeg',
-      content: `Session conducted by Dr. Sachin Nagarkar and dialogue with the parents
-
-Dr. Sachin Nagarkar with more than 30 years of experience on guiding physical and sexual needs of special persons and sexuality conducted a session for parents of the differently abled persons. This programme was organized on 28th September by Saptrishi Foundation in collaboration with Sobati Divyang Group, Nirvan Divyang organization and Abhisar Foundation and it took place in Divyang Bhavan, Pimpari.
-
-This programme was attended by parents of the special persons, representatives of social organizations and persons working in this field. The programme started with preface by Jyoti Agharkar of Sobati Divyang Group. Dr. Sachin Nagarkar guided the participants through discussion, dialogue and brainstorming. He told that sexuality is natural and innate. He told how humans have evolved from animals and how humans are separate from them due to qualities such as compassion, empathy and sensitivity. Intellectually disabled or differently abled persons also have sexual emotions and sexuality. They are intellectually disabled, but they too have the same emotion. Appropriate expressions and release of this sexuality is necessary. When this does not happen, such children and adults become angry or more upset. It is the stress caused by blocking of natural needs and emotions. We should understand their sexuality and help them to release it appropriately, he added.
-
-Dr. Nagarkar sir shared valuable insights and gave a new perspective on handling these sensitive matters with care and understanding. He suggested ways such as cultivating certain habits in the children since their childhood, training them to express themselves in socially acceptable and appropriate ways, good company of opposite-sex friends and use of sexual toys when appropriate. He emphasized that giving only instructions indicate rejection of that person and instead of this, if we appreciate small things, then we convey acceptance and it helps for further progress.
-
-He also discussed issues such as how to satisfy the sexual needs, should they marry or not, responsibility and complications lying therein. He told that these things are decided on the basis of each case and situation with possible support system and helping hands. Parents responded this lively and light-mood discussion by Dr. Nagarkar with plenty of questions and appreciation.
-
-Although there are constraints and limitations regarding sexuality of the differently abled persons, ways can be found out. Energy of the children and the adults can be channelized to other areas, they can be imparted skills, they can be encouraged to mingle with the people and have friendships and they can also be made self reliant, added Jyoti Agharkar of Sobati Divyang Group. Secretary of Saptrishi Foundation Manoj Borse talked about work done by Saptrishi Foundation and their 'one stop solution.' Vote of thanks was delivered by Vrushali Borase.
-
-Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a new perspective. They also expressed their desire to participate in further such activities by Sobati Group and Saptrishi Foundation.`
-    }
-  ]
-
   return (
     <>
-      <PageHeader 
-        title="News & Events" 
-        subtitle="Stay updated with our latest activities and achievements"
+      <PageHeader
+        title="News & Events"
+        subtitle="Stay informed about our latest activities, programs, and community achievements"
       />
 
-      {/* Upcoming Events */}
-      <section className="section-padding bg-gradient-to-b from-white to-orange-50/40">
+      {/* ── Upcoming Events ─────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Upcoming Events
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Join our upcoming initiatives and programs.
-            </p>
-          </motion.div>
+          <SectionHeading
+            icon={Calendar}
+            badge="Upcoming Events"
+            title="Mark Your Calendar"
+            subtitle="Join us at our upcoming programs, workshops, and community events."
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-7xl mx-auto">
             {upcomingEvents.map((event, index) => (
               <NewsCard
                 key={event.slug}
@@ -208,31 +240,23 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
         </div>
       </section>
 
-      {/* Latest News */}
-      <section className="section-padding bg-white">
+      {/* ── Latest News ─────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container-custom">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Latest News & Updates
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Recent updates and announcements from Saptrishi Foundation.
-            </p>
-          </motion.div>
+          <SectionHeading
+            icon={Newspaper}
+            badge="Latest News"
+            title="Recent Updates"
+            subtitle="News and highlights from Reelief Foundation's ongoing work and achievements."
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {news.map((item, index) => (
-              <NewsCard 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-7xl mx-auto">
+            {newsItems.map((item, index) => (
+              <NewsCard
                 key={item.slug}
                 {...item}
                 image={item.imageUrl}
-                delay={index * 0.1}
+                delay={index * 0.08}
                 onReadMore={() => setSelectedNews(item)}
               />
             ))}
@@ -240,7 +264,92 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
         </div>
       </section>
 
-      {/* News Modal */}
+      {/* ── News Cutouts ────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container-custom">
+          <SectionHeading
+            icon={ImageIcon}
+            badge="Media Coverage"
+            title="News Cutouts"
+            subtitle="Glimpses of how the media has covered our work and community impact."
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {newsCutouts.map((cutout, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ y: -5 }}
+              >
+                {/* Gradient top bar */}
+                <div className="h-1.5 w-full" style={{ background: GRADIENT }} />
+
+                {/* News cutout image */}
+                <div className="aspect-[3/4] relative bg-gray-100 overflow-hidden">
+                  <img
+                    src={cutout.image}
+                    alt={cutout.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      const target = e.currentTarget
+                      target.style.display = 'none'
+                      const parent = target.parentElement
+                      if (parent && !parent.querySelector('.cutout-placeholder')) {
+                        const ph = document.createElement('div')
+                        ph.className = 'cutout-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3'
+                        ph.style.background = GRADIENT_SOFT
+                        ph.innerHTML = `<div style="background:${GRADIENT}" class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md"><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg></div><p class='text-gray-400 text-xs font-medium text-center px-4'>Image will appear here once uploaded</p>`
+                        parent.appendChild(ph)
+                      }
+                    }}
+                  />
+                </div>
+
+                {/* Card label */}
+                <div className="p-5">
+                  <div
+                    className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full mb-3"
+                    style={{ background: GRADIENT_SOFT, color: '#38bdf8' }}
+                  >
+                    <Calendar size={11} /> {cutout.date}
+                  </div>
+                  <h3 className="text-base font-bold text-gray-800 leading-snug">
+                    {cutout.title}
+                  </h3>
+                  <div className="h-0.5 w-10 rounded-full mt-3" style={{ background: GRADIENT }} />
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Placeholder card for future cutouts */}
+            <motion.div
+              className="rounded-3xl border-2 border-dashed border-sky-200 flex items-center justify-center aspect-auto min-h-[300px] p-8"
+              style={{ background: GRADIENT_SOFT }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="text-center">
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 opacity-40"
+                  style={{ background: GRADIENT }}
+                >
+                  <ImageIcon className="text-white" size={24} />
+                </div>
+                <p className="text-sky-400 font-semibold text-sm">More cutouts coming soon</p>
+                <p className="text-gray-400 text-xs mt-1">Media coverage updated regularly</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── News Detail Modal ────────────────────────────── */}
       <AnimatePresence>
         {selectedNews && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -252,83 +361,107 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
               exit={{ opacity: 0 }}
               onClick={() => setSelectedNews(null)}
             />
-            
-            {/* Modal Content */}
+
+            {/* Modal */}
             <motion.div
-              className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ opacity: 0, scale: 0.92, y: 24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              exit={{ opacity: 0, scale: 0.92, y: 24 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Close Button */}
+              {/* Gradient top bar */}
+              <div className="h-1.5 w-full rounded-t-3xl" style={{ background: GRADIENT }} />
+
+              {/* Close button */}
               <button
                 onClick={() => setSelectedNews(null)}
-                className="sticky top-4 right-4 ml-auto flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors z-10"
+                className="sticky top-4 right-4 ml-auto mr-4 mt-4 flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors z-10"
                 aria-label="Close modal"
               >
-                <X size={24} className="text-gray-600" />
+                <X size={20} className="text-gray-600" />
               </button>
 
-              {/* Modal Header */}
-              <div className="px-4 sm:px-6 md:px-8 pb-6">
-                {selectedNews.imageUrl && (
-                  <div className="aspect-video bg-gradient-to-br from-primary-yellow to-primary-orange rounded-xl mb-6 overflow-hidden relative">
-                    <img 
-                      src={selectedNews.imageUrl} 
+              {/* Modal body */}
+              <div className="px-6 md:px-10 pb-10 -mt-6">
+                {/* Image */}
+                {selectedNews.imageUrl ? (
+                  <div className="aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+                    <img
+                      src={selectedNews.imageUrl}
                       alt={selectedNews.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                )}
-                {!selectedNews.imageUrl && (
-                  <div className="aspect-video bg-gradient-to-br from-primary-yellow to-primary-orange rounded-xl mb-6 flex items-center justify-center text-white text-5xl sm:text-6xl md:text-7xl">
+                ) : (
+                  <div
+                    className="aspect-video rounded-2xl mb-6 flex items-center justify-center text-white text-6xl shadow-md"
+                    style={{ background: GRADIENT }}
+                  >
                     📰
                   </div>
                 )}
-                
-                <p className="text-sm text-gray-500 mb-3">📅 {selectedNews.date}</p>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+
+                {/* Date pill */}
+                <div
+                  className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full mb-4"
+                  style={{ background: GRADIENT_SOFT, color: '#38bdf8' }}
+                >
+                  <Calendar size={12} /> {selectedNews.date}
+                </div>
+
+                {/* Title */}
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 leading-tight">
                   {selectedNews.title}
                 </h2>
-              </div>
+                <div className="w-14 h-1 rounded-full mb-6" style={{ background: GRADIENT }} />
 
-              {/* Modal Body */}
-              <div className="px-4 sm:px-6 md:px-8 pb-8">
-                <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
-                  {selectedNews.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
+                {/* Content */}
+                <div className="space-y-4">
+                  {selectedNews.content.split('\n\n').map((paragraph, i) => (
+                    <p key={i} className="text-gray-700 leading-relaxed text-sm md:text-base">
                       {paragraph}
                     </p>
                   ))}
                 </div>
 
-                {/* Read Full Article Button */}
+                {/* External link */}
                 {selectedNews.newsLink && (
                   <div className="mt-8">
                     <a
                       href={selectedNews.newsLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-orange to-primary-yellow text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                      className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm"
+                      style={{ background: GRADIENT }}
                     >
-                      <span>वाचा सविस्तर / Read Full Article</span>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      Read Full Article
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
                   </div>
                 )}
 
-                {/* Contact Info */}
-                <div className="mt-8 p-4 sm:p-6 bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10 rounded-xl border-l-4 border-primary-orange">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">Contact Information</h3>
-                  <div className="space-y-2 text-gray-700 text-sm sm:text-base">
-                    <p><strong>Address:</strong> First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune - 411017</p>
-                    <p><strong>Email:</strong> <a href="mailto:saptrishifoundationpune@gmail.com" className="text-primary-orange hover:underline break-all">saptrishifoundationpune@gmail.com</a></p>
-                    <p><strong>Phone:</strong> <span className="break-all">9762184554 / 9665363177 / 9172716630</span></p>
-                    <p><strong>Website:</strong> <a href="https://saptrishifoundation.in/" target="_blank" rel="noopener noreferrer" className="text-primary-orange hover:underline break-all">https://saptrishifoundation.in/</a></p>
-                    <p><strong>Social Media:</strong> <a href="https://linktr.ee/SaptrishiFoundation" target="_blank" rel="noopener noreferrer" className="text-primary-orange hover:underline break-all">https://linktr.ee/SaptrishiFoundation</a></p>
+                {/* Contact info */}
+                <div
+                  className="mt-8 p-5 rounded-2xl border border-sky-100"
+                  style={{ background: GRADIENT_SOFT }}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center"
+                      style={{ background: GRADIENT }}
+                    >
+                      <Users className="text-white" size={15} />
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-sm">Contact Reelief Foundation</h3>
+                  </div>
+                  <div className="space-y-1 text-xs text-gray-600 ml-10">
+                    <p><span className="font-semibold">Address:</span> First floor, Office no. 105, Aspiro Building, Station Road, Pimpri, Pune – 411017</p>
+                    <p><span className="font-semibold">Email:</span> <a href="mailto:saptrishifoundationpune@gmail.com" className="text-sky-500 hover:underline">saptrishifoundationpune@gmail.com</a></p>
+                    <p><span className="font-semibold">Phone:</span> 9762184554 / 9665363177 / 9172716630</p>
+                    <p><span className="font-semibold">Website:</span> <a href="https://saptrishifoundation.in/" target="_blank" rel="noopener noreferrer" className="text-sky-500 hover:underline">saptrishifoundation.in</a></p>
                   </div>
                 </div>
               </div>

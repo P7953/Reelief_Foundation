@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
 
+const GRADIENT = 'linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c4b5fd 100%)'
+
 interface NewsCardProps {
   title: string
   excerpt: string
@@ -14,40 +16,59 @@ interface NewsCardProps {
   onReadMore?: () => void
 }
 
-export default function NewsCard({ title, excerpt, date, image, slug, delay = 0, content, onReadMore }: NewsCardProps) {
+export default function NewsCard({ title, excerpt, date, image, delay = 0, onReadMore }: NewsCardProps) {
   return (
     <motion.div
-      className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group"
+      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group flex flex-col"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
+      whileHover={{ y: -5 }}
     >
-      <div className="aspect-video bg-gradient-to-br from-primary-yellow to-primary-orange relative overflow-hidden">
+      {/* Image area */}
+      <div className="aspect-video relative overflow-hidden">
         {image ? (
-          <img src={image} alt={title} className="w-full h-full object-cover" />
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-white text-6xl">
+          <div
+            className="w-full h-full flex items-center justify-center text-white text-6xl"
+            style={{ background: GRADIENT }}
+          >
             📰
           </div>
         )}
+        {/* Top gradient bar overlay */}
+        <div className="absolute top-0 left-0 right-0 h-1" style={{ background: GRADIENT }} />
       </div>
-      <div className="p-6">
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-          <Calendar size={16} />
-          <span>{date}</span>
+
+      {/* Content */}
+      <div className="p-6 flex flex-col flex-1">
+        <div
+          className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit"
+          style={{ background: 'linear-gradient(135deg,#e0f7ff,#ede9fe)', color: '#38bdf8' }}
+        >
+          <Calendar size={12} />
+          {date}
         </div>
-        <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary-orange transition-colors">
+
+        <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-sky-500 transition-colors leading-snug flex-1">
           {title}
         </h3>
-        <p className="text-gray-600 mb-4 line-clamp-3">
+
+        <p className="text-gray-500 text-sm mb-5 line-clamp-3 leading-relaxed">
           {excerpt}
         </p>
-        <button 
+
+        <button
           onClick={onReadMore}
-          className="inline-flex items-center gap-2 text-primary-orange font-semibold hover:gap-3 transition-all"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-sky-500 hover:gap-3 transition-all duration-200 mt-auto"
         >
-          Read More <ArrowRight size={16} />
+          Read More <ArrowRight size={15} />
         </button>
       </div>
     </motion.div>

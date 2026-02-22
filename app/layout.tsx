@@ -1,36 +1,35 @@
 import type { Metadata } from 'next'
-import { Open_Sans, Playfair_Display } from 'next/font/google'
+import { Open_Sans, Playfair_Display, Quicksand } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import SplashWrapper from '@/components/SplashWrapper'
 
-const openSans = Open_Sans({ 
+const openSans = Open_Sans({
   subsets: ['latin'],
   variable: '--font-open-sans',
   display: 'swap',
 })
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
 })
 
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  variable: '--font-quicksand',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'Saptrishi Foundation – Your Contribution can change someone\'s life.',
-  description: 'Pioneer initiative in India for integrated one stop solution for All types of differently abled people. Saptrishi Foundation provides support services for the differently abled community.',
-  keywords: 'Saptrishi Foundation, differently abled, disability support, India, NGO, foundation',
-  authors: [{ name: 'Saptrishi Foundation' }],
-  openGraph: {
-    title: 'Saptrishi Foundation – Your Contribution can change someone\'s life.',
-    description: 'Pioneer initiative in India for integrated one stop solution for All types of differently abled people.',
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Saptrishi Foundation',
-  },
-  robots: {
-    index: true,
-    follow: true,
+  title: 'Reelief Foundation',
+  description: 'Transforming Lives Through Care, Empowerment, and Community.',
+  keywords: 'Reelief Foundation, community health, healing, advocacy, mental wellness',
+  icons: {
+    icon: '/images/Logo.PNG',
+    apple: '/images/Logo.PNG',
   },
 }
 
@@ -40,11 +39,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${openSans.variable} ${playfair.variable}`}>
-      <body className={openSans.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+    <html lang="en" className={`${openSans.variable} ${playfair.variable} ${quicksand.variable} font-quicksand`}>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
+      <body className={quicksand.className}>
+        <SplashWrapper>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </SplashWrapper>
       </body>
     </html>
   )

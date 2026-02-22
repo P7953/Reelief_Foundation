@@ -8,8 +8,8 @@ import { Eye, Target, Lightbulb, Users2, Heart, Zap } from 'lucide-react'
 export default function VisionMissionPage() {
   return (
     <>
-      <PageHeader 
-        title="Vision & Mission" 
+      <PageHeader
+        title="Vision & Mission"
         subtitle="Guiding principles that drive our commitment to the differently abled community"
       />
 
@@ -25,7 +25,7 @@ export default function VisionMissionPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-yellow to-primary-orange rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-accent-blue to-accent-purple rounded-2xl flex items-center justify-center">
                   <Eye className="text-white" size={32} />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -34,7 +34,7 @@ export default function VisionMissionPage() {
               </div>
               <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
                 <p className="font-semibold text-gray-800 text-xl">
-                  To create a fearless, equitable and just society where poor and marginalized sections live dignified life and transform people into good citizens.
+                  Reelief Foundation envisions a world where every individual in crisis receives timely support, sustainable solutions, and meaningful empowerment.
                 </p>
               </div>
             </motion.div>
@@ -50,11 +50,11 @@ export default function VisionMissionPage() {
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
                 <div className="text-center p-8 relative z-10">
                   <div className="mb-4">
-                    <Image 
-                      src="/images/Vision.PNG" 
-                      alt="Vision" 
-                      width={90} 
-                      height={90} 
+                    <Image
+                      src="/images/Vision.PNG"
+                      alt="Vision"
+                      width={90}
+                      height={90}
                       className="mx-auto rounded-full object-cover"
                     />
                   </div>
@@ -84,11 +84,11 @@ export default function VisionMissionPage() {
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
                 <div className="text-center p-8 relative z-10">
                   <div className="mb-4">
-                    <Image 
-                      src="/images/Mission.PNG" 
-                      alt="Mission" 
-                      width={90} 
-                      height={90} 
+                    <Image
+                      src="/images/Mission.PNG"
+                      alt="Mission"
+                      width={90}
+                      height={90}
                       className="mx-auto rounded-full object-cover"
                     />
                   </div>
@@ -115,7 +115,7 @@ export default function VisionMissionPage() {
               </div>
               <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
                 <p className="font-semibold text-gray-800 text-xl">
-                  To reach out to unreached, underprivileged sections of society and bring them into the mainstream by designing equitable, innovative solutions and setting up example of giving back to nature and society.
+                  Reelief Foundation provides urgent and lasting support to people in crisis. We offer emergency aid, healthcare, education, and community empowerment to reduce suffering and rebuild lives. Our goal is to help individuals regain dignity, independence, and hope by giving them the tools to overcome challenges and reach their full potential. Through leadership, personal growth, and strong community connections, we create an environment where people can heal, grow in confidence, and thrive in all areas of life.
                 </p>
               </div>
             </motion.div>
@@ -145,14 +145,14 @@ export default function VisionMissionPage() {
             {[
               {
                 icon: Lightbulb,
-                title: 'Innovation',
-                description: 'Leverage technology to create accessible digital and physical solutions for the community.',
+                title: 'Continuous Innovation',
+                description: 'Develop new projects and adaptive approaches to respond effectively to emerging social challenges.',
                 color: 'from-accent-pink to-accent-purple'
               },
               {
                 icon: Users2,
-                title: 'Community Building',
-                description: 'Foster a strong network of stakeholders, volunteers, and beneficiaries working together.',
+                title: 'Community Engagement',
+                description: 'Strengthen community participation to ensure inclusive, people-centered solutions that address real needs.',
                 color: 'from-accent-blue to-accent-green'
               },
               {
@@ -163,26 +163,26 @@ export default function VisionMissionPage() {
               },
               {
                 icon: Zap,
-                title: 'Rapid Response',
-                description: 'Provide quick and efficient solutions to urgent needs and challenges.',
+                title: 'Stronger Partnerships',
+                description: 'Collaborate with government bodies, NGOs, and institutions to amplify impact through shared resources and expertise.',
                 color: 'from-accent-green to-accent-blue'
               },
               {
                 icon: Target,
-                title: 'Measurable Impact',
-                description: 'Track and demonstrate real, tangible improvements in lives of beneficiaries.',
+                title: 'Program Expansion',
+                description: 'Expand the reach of our programs to serve more underprivileged communities across Maharashtra and India',
                 color: 'from-accent-purple to-accent-pink'
               },
               {
                 icon: Eye,
-                title: 'Transparency',
-                description: 'Maintain complete openness in our operations, funding, and outcomes.',
+                title: 'Sustainable Impact',
+                description: 'Design and implement initiatives that create long-term, meaningful improvements in health, education, and livelihoods.',
                 color: 'from-primary-orange to-accent-pink'
               }
             ].map((goal, index) => (
               <motion.div
                 key={goal.title}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-t-4 border-primary-orange"
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-t-4 border-sky-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -204,7 +204,7 @@ export default function VisionMissionPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="section-padding bg-gradient-to-br from-primary-yellow to-primary-orange">
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c4b5fd 100%)' }}>
         <div className="container-custom">
           <motion.div
             className="text-center max-w-3xl mx-auto"
@@ -213,24 +213,22 @@ export default function VisionMissionPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Join Us in Our Mission
             </h2>
-            <p className="text-xl text-gray-800 mb-8 leading-relaxed">
-              Together, we can create lasting change. Whether you volunteer your time, 
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Together, we can create lasting change. Whether you volunteer your time,
               donate resources, or simply spread awareness, every contribution matters.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/volunteer" className="btn-primary bg-white text-primary-orange hover:bg-gray-100">
-                Become a Volunteer
-              </a>
-              <a 
-                href="https://rzp.io/l/saptrishifoundation" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+              <a
+                href="/donate"
+                className="bg-sky-300 hover:bg-sky-600 active:bg-sky-700 text-white px-9 py-4 rounded-full font-semibold text-base shadow-lg shadow-sky-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 Donate Now
+              </a>
+              <a href="/volunteer" className="border-2 border-white text-white px-9 py-4 rounded-full font-semibold text-base hover:bg-white hover:text-gray-900 transition-all duration-200 hover:scale-105 active:scale-95">
+                Become a Volunteer
               </a>
             </div>
           </motion.div>

@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion'
 import PageHeader from '@/components/PageHeader'
-import { ExternalLink, Users, Heart, HandHeart, Target, Award, Clock } from 'lucide-react'
+import { ExternalLink, Users, Heart, HandHeart, Award } from 'lucide-react'
 
 export default function VolunteerPage() {
   const benefits = [
     {
       icon: <Heart className="w-8 h-8" />,
-      title: 'Make a Difference',
-      description: 'Directly impact the lives of differently-abled individuals and their families'
+      title: 'Create Real Impact',
+      description: 'Support health, education, and social welfare initiatives that directly improve the lives of underserved individuals and communities.'
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -18,21 +18,20 @@ export default function VolunteerPage() {
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: 'Gain Experience',
-      description: 'Develop valuable skills and experience in social work and community service'
+      title: 'Gain Practical Experience',
+      description: 'Develop hands-on experience in community outreach,health programs,awareness campaigns,and social development initiatives.'
     },
     {
       icon: <HandHeart className="w-8 h-8" />,
-      title: 'Promote Social Awareness',
-      description: 'Help spread awareness, inclusion, and understanding within the community.'
+      title: 'Promote Awareness & Inclusion',
+      description: 'Help spread awareness on health, hygiene, and social issues while fostering inclusion, dignity, and compassion.'
     }
   ]
 
-
   return (
     <>
-      <PageHeader 
-        title="Become a Volunteer" 
+      <PageHeader
+        title="Become a Volunteer"
         subtitle="Join hands with us to create an inclusive society"
       />
 
@@ -40,16 +39,18 @@ export default function VolunteerPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div
-            className="max-w-4xl mx-auto text-center mb-16"
+            className="max-w-4xl mx-auto text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               Why Volunteer With Us?
             </h2>
-
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Be a part of our mission to improve health, dignity, and opportunity for marginalized communities. Every volunteer helps us create meaningful and lasting change.
+            </p>
           </motion.div>
 
           {/* Benefits Grid */}
@@ -57,19 +58,19 @@ export default function VolunteerPage() {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 rounded-xl bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10 hover:shadow-lg transition-all"
+                className="text-center p-6 rounded-xl bg-gradient-to-br from-sky-50 to-white border border-sky-100 hover:shadow-lg transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-yellow to-primary-orange text-white rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-600 text-white rounded-full mb-4">
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 ">
                   {benefit.description}
                 </p>
               </motion.div>
@@ -78,9 +79,8 @@ export default function VolunteerPage() {
         </div>
       </section>
 
-  
       {/* Google Form Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-sky-50">
         <div className="container-custom">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -96,13 +96,13 @@ export default function VolunteerPage() {
               <p className="text-lg text-gray-600 mb-6">
                 Fill out the form below to join our volunteer community
               </p>
-              
+
               {/* Open in New Tab Button */}
               <a
                 href="https://forms.gle/HJCqsDTsWmYG3JKP7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-orange to-primary-yellow text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 mb-8"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-8"
               >
                 <span>Open Form in New Tab</span>
                 <ExternalLink className="w-5 h-5" />
@@ -110,7 +110,7 @@ export default function VolunteerPage() {
             </div>
 
             {/* Embedded Google Form */}
-            <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-xl">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
               <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfSxOhc1A-Q5tDNx5MpYPl9T8LGt57c91QRNABKvn7Z22qHtg/viewform"
                 width="100%"
@@ -128,12 +128,12 @@ export default function VolunteerPage() {
             {/* Fallback Message */}
             <div className="text-center mt-8">
               <p className="text-gray-600">
-                Having trouble viewing the form? {' '}
+                Having trouble viewing the form?{' '}
                 <a
                   href="https://forms.gle/HJCqsDTsWmYG3JKP7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-orange hover:underline font-semibold"
+                  className="text-sky-600 hover:underline font-semibold"
                 >
                   Click here to open it in a new window
                 </a>
@@ -144,7 +144,7 @@ export default function VolunteerPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10">
+      <section className="section-padding bg-gradient-to-br from-sky-100 to-white">
         <div className="container-custom">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -159,21 +159,20 @@ export default function VolunteerPage() {
             <p className="text-lg text-gray-600 mb-8">
               Feel free to reach out to us for any queries or more information about volunteer opportunities
             </p>
-            <div className="space-y-4 text-left bg-white p-8 rounded-xl shadow-md">
+            <div className="space-y-4 text-left bg-white p-8 rounded-xl shadow-md border border-sky-100">
               <p className="text-gray-700">
                 <strong>Email:</strong>{' '}
-                <a href="mailto:saptrishifoundationpune@gmail.com" className="text-primary-orange hover:underline">
-                  saptrishifoundationpune@gmail.com
+                <a href="mailto:relief.foundationpune@gmail.com" className="text-sky-600 hover:underline">
+                  relief.foundationpune@gmail.com
                 </a>
               </p>
               <p className="text-gray-700">
                 <strong>Phone:</strong>{' '}
-                <span className="text-gray-800">9172716630</span>
+                <span className="text-gray-800">9011311323 / 7987474711</span>
               </p>
               <p className="text-gray-700">
                 <strong>Address:</strong>{' '}
-                First floor,C/o Manojkumar Borse, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, 
-                Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune - 411017.
+                Mauli Residency, Shreeram colony, Near Sadguru Clinic, Sadgurunagar, Bhosari , Pune 411039.
               </p>
             </div>
           </motion.div>

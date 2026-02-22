@@ -1,128 +1,119 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import { Facebook, Twitter, Youtube, Linkedin, Instagram } from 'lucide-react'
+import Link from "next/link"
+import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="bg-gray-900 text-white">
+    <footer id="contact" className="bg-slate-900 text-white">
+
       {/* Main Footer */}
-      <div className="container-custom py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          
-          {/* About Column */}
-          <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold mb-5">Saptrishi Foundation</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              A pioneering initiative in India offering an integrated one-stop solution for all individuals with disabilities.
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+
+          {/* About */}
+          <div className="lg:col-span-1 space-y-4">
+            <h3 className="text-xl font-bold">Reelief Foundation</h3>
+            <p className="text-neutral-300 leading-relaxed text-sm">
+              Improving lives through compassion, empowerment, and sustainable
+              action. Working alongside communities to restore dignity and create
+              opportunities since 2010.
             </p>
 
-            <div className="flex gap-3">
-              <a 
-                href="https://www.facebook.com/profile.php?id=100080244490383"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-
-              <a 
-                href="https://www.instagram.com/saptrishi_foundation/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram size={18} />
-              </a>
-
-              <a href="https://x.com/SaptrishiF1" target="_blank" rel="noopener noreferrer"  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"  aria-label="Twitter / X" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" >
-                    <path d="M18.21 2H21L14.07 10.09 22 22h-6.63L9.9 13.88 3.79 22H2l7.59-9.18L2 2h6.63l4.71 6.29L18.21 2zm-2.35 17.17h1.52L7.69 4.72H6.1l9.76 14.45z"/>
-                </svg>
-              </a>
-
-
-              <a 
-                href="https://www.youtube.com/channel/UCiSuDYU4NfCrQz7F7fD97sg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"
-                aria-label="YouTube"
-              >
-                <Youtube size={18} />
-              </a>
-
-              <a 
-                href="https://www.linkedin.com/in/saptrishi-foundation-29b073230/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
+            {/* Social */}
+            <div className="flex gap-3 pt-2">
+              {[
+                { href: "https://www.facebook.com/profile.php?id=100080244490383", icon: Facebook },
+                { href: "https://www.instagram.com/saptrishi_foundation/", icon: Instagram },
+                { href: "https://www.youtube.com/channel/UCiSuDYU4NfCrQz7F7fD97sg", icon: Youtube },
+                { href: "https://www.linkedin.com/in/saptrishi-foundation-29b073230/", icon: Linkedin },
+              ].map(({ href, icon: Icon }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-sky-500 hover:border-sky-500 transition-all"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-5">Quick Links</h3>
-            <ul className="space-y-3">
-              <li><Link href="/" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Home</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">About Us</Link></li>
-              <li><Link href="/vision-mission" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Vision & Mission</Link></li>
-              <li><Link href="/testimonials" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Testimonials</Link></li>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/" className="text-neutral-300 hover:text-sky-400">Home</Link></li>
+              <li><Link href="/about" className="text-neutral-300 hover:text-sky-400">About Us</Link></li>
+              <li><Link href="/vision-mission" className="text-neutral-300 hover:text-sky-400">Vision & Mission</Link></li>
+              <li><Link href="/testimonials" className="text-neutral-300 hover:text-sky-400">Testimonials</Link></li>
             </ul>
           </div>
 
           {/* Programs */}
           <div>
-            <h3 className="text-xl font-bold mb-5">Programs</h3>
-            <ul className="space-y-3">
-              <li><Link href="/initiatives" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Our Initiatives</Link></li>
-              <li><Link href="/associates" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Associates</Link></li>
-              <li><Link href="/news-events" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">News & Events</Link></li>
-              <li><Link href="/downloads" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Downloads</Link></li>
+            <h4 className="text-lg font-semibold mb-4">Programs</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/initiatives" className="text-neutral-300 hover:text-sky-400">Our Initiatives</Link></li>
+              <li><Link href="/news-events" className="text-neutral-300 hover:text-sky-400">News & Events</Link></li>
+              <li><Link href="/media-gallery" className="text-neutral-300 hover:text-sky-400">Media Gallery</Link></li>
             </ul>
           </div>
 
           {/* Get Involved */}
           <div>
-            <h3 className="text-xl font-bold mb-5">Get Involved</h3>
-            <ul className="space-y-3">
-              <li><Link href="/volunteer" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Become a Volunteer</Link></li>
-              <li><Link href="/donate" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Donate Now</Link></li>
-              <li><Link href="/membership" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Divyang Membership</Link></li>
-              <li><Link href="/suggestions" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Suggestions</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-primary-orange transition-colors inline-block">Contact Us</Link></li>
+            <h4 className="text-lg font-semibold mb-4">Get Involved</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/volunteer" className="text-neutral-300 hover:text-sky-400">Become a Volunteer</Link></li>
+              <li><Link href="/donate" className="text-neutral-300 hover:text-sky-400">Donate Now</Link></li>
+              <li><Link href="/contact" className="text-neutral-300 hover:text-sky-400">Contact Us</Link></li>
             </ul>
           </div>
+
+          {/* Legal & Contact */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Legal & Contact</h4>
+            <ul className="space-y-2 text-sm text-neutral-300">
+              <li>Registered NGO</li>
+              <li>80G Tax Exemption Available</li>
+              <li>Email: info@reelieffoundation.org</li>
+              <li>Phone: +91 XXXXX XXXXX</li>
+              <li>
+                <Link href="/privacy" className="hover:text-sky-400">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-sky-400">Terms & Conditions</Link>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
 
       {/* Bottom Footer */}
-      <div className="bg-gradient-to-br from-primary-yellow via-primary-orange to-orange-600">
+      <div className="bg-gradient-to-r from-sky-100 via-sky-200 to-cyan-100">
         <div className="w-full py-5">
           <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4">
-
-            <p className="text-white text-xl text-center md:text-left">
-              © {currentYear} Saptrishi Foundation. All rights reserved.
+            <p className="text-slate-900 text-base md:text-lg text-center md:text-left font-medium">
+              © 2026 Reelief Foundation. All rights reserved.
             </p>
-
-            <div className="flex gap-6 text-l">
-              <Link href="/privacy" className="text-white hover:opacity-80 transition">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-white hover:opacity-80 transition">
-                Terms & Conditions
-              </Link>
+            <div className="text-slate-900 text-base md:text-lg font-serif flex gap-6">
+              <p>
+                Developed by{" "}
+                <Link
+                  href="https://vortechzy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-900 hover:text-sky-600 transition"
+                >
+                  Vortechzy Technologies
+                </Link>
+              </p>
             </div>
-
           </div>
         </div>
       </div>

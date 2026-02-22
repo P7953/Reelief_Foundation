@@ -9,20 +9,20 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: 'Office Address',
-      content:'Saptrishi Foundation, C/o Manojkumar Borse First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune- 411017',
+      content:'Project Office 1:Mauli Residency, Shreeram colony, Near Sadguru Clinic, Sadgurunagar, Bhosari , Pune 411039.',
       link: null
     },
     {
       icon: Phone,
       title: 'Office Contact No',
-      content: '+91 9172716630',
-      link: 'tel:+919172716630'
+      content: '+91 9011311323',
+      link: 'tel:+919011311323'
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'saptrishifoundationpune@gmail.com',
-      link: 'mailto:saptrishifoundationpune@gmail.com'
+      content: 'relief.foundationpune@gmail.com',
+      link: 'mailto:relief.foundationpune@gmail.com'
     }
   ]
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-yellow to-primary-orange rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-sky-200 to-sky-500 rounded-xl flex items-center justify-center">
                   <info.icon className="text-white" size={28} />
                 </div>
                 <h3 className="font-bold text-gray-800 mb-3 text-xl">
@@ -70,7 +70,7 @@ export default function ContactPage() {
                 {info.link ? (
                   <a 
                     href={info.link} 
-                    className="text-gray-600 hover:text-primary-orange transition-colors break-words"
+                    className="text-gray-600 hover:text-sky-500 transition-colors break-words"
                   >
                     {info.content}
                   </a>
@@ -89,8 +89,8 @@ export default function ContactPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-primary-yellow/20 to-primary-orange/20 rounded-2xl p-8 text-center border-2 border-primary-orange/30">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-yellow to-primary-orange rounded-xl flex items-center justify-center">
+            <div className="bg-gradient-to-br from-sky-200/20 to-sky-500/20 rounded-2xl p-8 text-center border-2 border-sky-500/30">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-sky-200 to-sky-500 rounded-xl flex items-center justify-center">
                 <MapPin className="text-white" size={28} />
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
@@ -122,7 +122,7 @@ export default function ContactPage() {
             </p>
             <div className="flex justify-center gap-4">
               <a
-                href="https://www.facebook.com/profile.php?id=100080244490383"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
@@ -131,7 +131,7 @@ export default function ContactPage() {
                 <Facebook className="text-white" size={24} />
               </a>
               <a
-                href="https://www.instagram.com/saptrishi_foundation/"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-14 h-14 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 <Twitter className="text-white" size={24} />
               </a>
               <a
-                href="https://www.youtube.com/channel/UCiSuDYU4NfCrQz7F7fD97sg"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
@@ -158,7 +158,7 @@ export default function ContactPage() {
                 <Youtube className="text-white" size={24} />
               </a>
               <a
-                href="https://www.linkedin.com/in/saptrishi-foundation-29b073230/"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
@@ -175,7 +175,7 @@ export default function ContactPage() {
       <section className="bg-gray-100 py-0">
         <div className="w-full h-96 md:h-[500px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.871610549822!2d73.80183667471017!3d18.62484366598173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b850e88005d9%3A0xbb942a62c220088c!2sASPIRO!5e0!3m2!1sen!2sin!4v1762939099202!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.6014581054696!2d73.84884197471052!3d18.63698726560875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c78e5cfa72e9%3A0x2bcc5f8d485b6e98!2sMauli%20Residency!5e0!3m2!1sen!2sin!4v1771510084523!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
